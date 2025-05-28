@@ -1,0 +1,13 @@
+backup/
+logs/
+docker/
+config/
+*.tmp
+*.bak
+.cache/
+logs/
+backup/
+docker/volumes/
+*.env
+*.log
+Thumbs.db
