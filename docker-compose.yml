@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  dashboard:
+    image: nginx:alpine
+    container_name: dashboard_foxtrot
+    restart: always
+    ports:
+      - "8083:80"
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+    networks:
+      - nosferatus
+
+networks:
+  nosferatus:
+    external: true
+

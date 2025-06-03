@@ -1,0 +1,11 @@
+# Arquivos sensíveis
+credenciais/
+*.txt
+*.md
+*.csv
+*.env
+*.log
+
+# Volumes e imagens
+html/img/*
+!html/img/logo.png
