@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shaos Matrix Control Center</title>
+  <link rel="stylesheet" href="css/matrix-theme.css">
+</head>
+<body>
+  <header>
+    <h1>SHAOS MATRIX CONTROL CENTER</h1>
+  </header>
+
+  <section id="status-bar" aria-label="Status dos serviços">
+    <ul>
+      <li>Apache: <span class="ok">[OK]</span></li>
+      <li>MariaDB: <span class="ok">[OK]</span></li>
+      <li>Git: <span class="ok">[OK]</span></li>
+      <li>Docker: <span class="ok">[OK]</span></li>
+      <li>Backup: <span class="warn">[WARN]</span></li>
+    </ul>
+  </section>
+
+  <main>
+    <section id="daily-schedule" aria-labelledby="agenda-title">
+      <h2 id="agenda-title">Compromissos</h2>
+      <table>
+        <thead>
+          <tr><th>Hora</th><th>Atividade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>04:30</td><td>Acordar</td></tr>
+          <tr><td>05:00</td><td>Academia</td></tr>
+          <tr><td>07:30</td><td>Café da Manhã</td></tr>
+          <tr><td>10:00</td><td>Aula de Inglês</td></tr>
+          <tr><td>12:00</td><td>Almoço</td></tr>
+          <tr><td>14:00</td><td>Aula de SQL</td></tr>
+          <tr><td>16:00</td><td>Limpar Caixas de Areia</td></tr>
+          <tr><td>22:00</td><td>Encerrar as Atividades</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="notes" aria-labelledby="lembretes-title">
+      <h2 id="lembretes-title">Lembretes</h2>
+      <ul>
+        <li>- Montar server Linux</li>
+        <li>- Comprar ração</li>
+        <li>- Agendar backup mensal</li>
+      </ul>
+    </section>
+
+    <section id="clock-block" aria-label="Relógio">
+      <div class="clock">
+        <canvas id="analog-clock" width="150" height="150"></canvas>
+        <div id="digital-clock">14:28:09</div>
+      </div>
+    </section>
+
+    <section id="tools" aria-labelledby="tools-title">
+      <h2 id="tools-title">Ferramentas</h2>
+      <ul>
+        <li><a href="#">PHP Info</a></li>
+        <li><a href="#">Área de Teste</a></li>
+      </ul>
+    </section>
+
+    <section id="database" aria-labelledby="database-title">
+      <h2 id="database-title">Banco de Dados</h2>
+      <ul>
+        <li><a href="#">Adminer</a></li>
+        <li><a href="#">Backup SQL</a></li>
+      </ul>
+    </section>
+
+    <section id="files" aria-labelledby="files-title">
+      <h2 id="files-title">Arquivos Locais</h2>
+      <ul>
+        <li><a href="#">Documentos</a></li>
+        <li><a href="#">Manuais</a></li>
+      </ul>
+    </section>
+
+    <section id="bookmarks" aria-labelledby="bookmarks-title">
+      <h2 id="bookmarks-title">Favoritos</h2>
+      <ul>
+        <li><a href="https://chat.openai.com">ChatGPT</a></li>
+        <li><a href="https://github.com">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 - Shaos Control Center | Powered by Foxtrot</p>
+  </footer>
+
+  <script src="js/clock.js"></script>
+</body>
+</html>
+

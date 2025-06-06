@@ -1,0 +1,154 @@
+body {
+  background-color: black;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #001100;
+  border-bottom: 1px solid #00ff00;
+}
+
+footer {
+  border-top: 1px solid #00ff00;
+  border-bottom: none;
+  clear: both;
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2 {
+  margin: 0.1em 0;
+  color: #00ff00;
+}
+
+section {
+  padding: 1em;
+  margin: 0.5em;
+  border: 1px dashed #00ff00;
+  box-sizing: border-box;
+}
+
+ul, table {
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+li, td, th {
+  padding: 0.2em 0.5em;
+  color: #00ff00;
+}
+
+.ok {
+  color: #00ff00;
+}
+
+.warn {
+  color: orange;
+}
+
+a {
+  color: #00ff00;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  float: none;
+  margin: 0 auto;
+  grid-column: 3 / 4;
+}
+
+#analog-clock {
+  display: block;
+  border-radius: 50%;
+  border: 2px solid #00ff00;
+  background-color: black;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+#digital-clock {
+  font-size: 2em;
+  margin-top: 0.5em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+#status-bar ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  padding: 0 1em;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+#daily-schedule {
+  grid-column: 1 / 2;
+  grid-row: span 3;
+  height: 100%;
+  align-self: stretch;
+}
+
+#notes, #tools, #database, #files, #bookmarks {
+  grid-column: span 1;
+}
+
+#bookmarks ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5em;
+}
+
+#calendar {
+  margin-top: 1em;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 0.25em;
+}
+
+.calendar-header {
+  font-weight: bold;
+  color: #00ff00;
+}
+
+.calendar-day {
+  padding: 0.2em;
+  border: 1px dashed #00ff00;
+}
+
+.calendar-empty {
+  padding: 0.2em;
+}
+
+.calendar-today {
+  background-color: #00ff00;
+  color: black;
+  font-weight: bold;
+}
