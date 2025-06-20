@@ -1,18 +1,23 @@
 <?php
-include_once("conexao.php");
+require_once('conexao.php');
 
-$hoje = date('N'); // 1 = Segunda ... 7 = Domingo
-$sql = "SELECT hora, evento FROM programacao WHERE semana = $hoje ORDER BY hora";
+date_default_timezone_set('America/Sao_Paulo');
+$hoje = date('w'); // 0 = domingo, 6 = sábado
 
-$resultado = $conn->query($sql);
+$sql = "SELECT hora, evento FROM compromissos WHERE semana = :hoje ORDER BY hora ASC";
+$stmt = $conn->prepare($sql);
+$stmt->execute(['hoje' => $hoje]);
 
-if ($resultado->num_rows > 0) {
-    echo '<table><tbody>';
-    while ($linha = $resultado->fetch_assoc()) {
-        echo "<tr><td>{$linha['hora']}</td><td>{$linha['evento']}</td></tr>";
-    }
-    echo '</tbody></table>';
+$resultados = $stmt->fetchAll();
+
+if ($resultados) {
+  echo "<ul>";
+  foreach ($resultados as $row) {
+    $hora = substr($row['hora'], 0, 5); // Exibe apenas HH:MM
+    echo "<li><strong>$hora</strong> — {$row['evento']}</li>";
+  }
+  echo "</ul>";
 } else {
-    echo '<p>Sem compromissos para hoje.</p>';
+  echo "<p>🕊️ Nenhum compromisso para hoje.</p>";
 }
 ?>

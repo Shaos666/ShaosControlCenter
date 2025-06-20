@@ -1,11 +1,14 @@
 <?php
-$host = 'mariadb_foxtrot';
-$usuario = 'shaos';
-$senha = 'Code4Shaos!';
-$banco = 'dashboarddb';
+$config = include __DIR__ . '/db.env.php';
 
-$conn = new mysqli($host, $usuario, $senha, $banco);
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
+try {
+    $conn = new PDO(
+        "mysql:host={$config['host']};dbname={$config['dbname']};charset=utf8mb4",
+        $config['user'],
+        $config['pass']
+    );
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro na conexão: " . $e->getMessage());
 }
 ?>

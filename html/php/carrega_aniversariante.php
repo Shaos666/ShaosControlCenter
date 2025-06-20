@@ -1,17 +1,10 @@
 <?php
-include_once("conexao.php");
+require_once __DIR__ . "/conexao.php";
 
-$hoje = date('m-d');
-$sql = "SELECT nome, tipo FROM aniver WHERE DATE_FORMAT(dn, '%m-%d') = '$hoje'";
-$resultado = $conn->query($sql);
+$sql = "SELECT nome FROM aniversariantes WHERE DATE_FORMAT(dn, '%m-%d') = '06-19'";
+$stmt = $conn->query($sql);
+$dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if ($resultado->num_rows > 0) {
-    echo "<ul>";
-    while ($linha = $resultado->fetch_assoc()) {
-        echo "<li>🎉 {$linha['nome']} ({$linha['tipo']})</li>";
-    }
-    echo "</ul>";
-} else {
-    echo "<p>Nenhum aniversariante hoje.</p>";
-}
-?>
+header('Content-Type: application/json');
+echo json_encode($dados);
+
