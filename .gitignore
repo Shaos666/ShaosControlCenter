@@ -1,11 +1,53 @@
 # Arquivos sensíveis
 credenciais/
+*.env
 *.txt
 *.md
 *.csv
-*.env
 *.log
+*.bak
+*.old
+*.inc
+html/php/db.env.php
 
-# Volumes e imagens
+# 🔧 Arquivos de configuração locais
+.env.local
+.env.development.local
+.env.production.local
+
+# 🐳 Docker
+docker-compose.override.yml
+Dockerfile.*
+
+# 🚫 Cache / temporários
+*.swp
+*.tmp
+*.cache
+__pycache__/
+node_modules/
+
+# 📁 Diretórios de build / dist
+dist/
+build/
+output/
+*.tar.gz
+*.zip
+
+# 🧪 Testes
+coverage/
+html/testes/
+
+# 🖼️ Imagens (exceto logo principal)
 html/img/*
 !html/img/logo.png
+
+# ⚙️ Executáveis / binários
+*.exe
+*.out
+*.bin
+
+# ⚠️ Backup automático do editor
+*~
+
+# Git próprio
+.gitignore

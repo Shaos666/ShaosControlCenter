@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>SHAOS MATRIX CONTROL CENTER</title>
+  <link rel="icon" href="img/shaos-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/matrix-theme.css">
   <script src="js/clock.js" defer></script>
   <script src="js/dashboard.js" defer></script> <!-- <-- este volta aqui -->
@@ -10,12 +11,23 @@
 <body>
 
   <header>
-    <h1>SHAOS MATRIX CONTROL CENTER</h1>
+    <h1>
+      <span class="shaos">SHAOS</span>
+      <span class="matrix">Matrix</span><br>
+      <span class="control">Control Center</span>
+    </h1>
   </header>
 
   <nav>
-    <div class="status-bar">
-      <?php include 'php/status_servicos.php'; ?>
+    <div class="status-bar"> 
+       <?php
+          $status_path = __DIR__ . '/status_dashboard.html';
+          if (file_exists($status_path)) {
+              echo file_get_contents($status_path); // já inclui a estrutura
+          } else {
+              echo "<span>Status indisponível</span>";
+          }
+       ?>
     </div>
   </nav>
 
@@ -65,15 +77,22 @@
       </section>
     </div>
   </main>
+
 <script>
 console.log("🔁 Script de aniversariantes executado!");
 
 fetch('php/carrega_aniversariante.php')
-  .then(res => res.json())
-  .then(dados => {
-    // ...
+  .then(res => res.text())
+  .then(html => {
+    console.log("✅ HTML recebido:", html);
+    document.getElementById("aniversariantes").innerHTML = html;
   })
+  .catch(err => {
+    console.error("❌ Erro no fetch:", err);
+    document.getElementById("aniversariantes").innerHTML = "<li>Erro ao carregar aniversariantes.</li>";
+  });
 </script>
+
   <footer>
     <p>&copy; 2025 Shaos Systems — Desenvolvido com 🧠 e ⚡ por FoxTrot</p>
   </footer>

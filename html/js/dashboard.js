@@ -22,21 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch('php/carrega_aniversariante.php')
   .then(res => {
     console.log("Status HTTP:", res.status);
-    return res.json();
+    return res.text(); // ✅ TRATANDO COMO HTML
   })
-  .then(dados => {
-    let html = "<ul>";
-    if (dados.length === 0) {
-      html = "<p>🎈 Nenhum aniversariante hoje.</p>";
-    } else {
-      dados.forEach(p => html += `<li>🎉 ${p.nome}</li>`);
-      html += "</ul>";
-    }
+  .then(html => {
     document.getElementById("aniversariantes").innerHTML = html;
   })
-  .catch(erro => {
-    console.error("Erro no fetch:", erro);
-    document.getElementById("aniversariantes").innerHTML =
-      "<p style='color: red;'>Erro ao carregar aniversariantes.</p>";
+  .catch(error => {
+    console.error("❌ Erro no fetch:", error);
+    document.getElementById("aniversariantes").innerHTML = "<li>Erro ao carregar aniversariantes.</li>";
   });
 });
