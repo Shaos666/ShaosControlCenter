@@ -1,0 +1,175 @@
+#main-container {
+  display: grid;
+  grid-template-columns: 7.5cm auto 7.5cm;
+  gap: 3mm;
+  max-width: calc(100vw - 3mm); /* margem de 3mm cada lado */
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar-left,
+.content,
+.sidebar-right {
+  background-color: #111;
+  border: 1px dotted #0f0;
+  padding: 7px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+.content {
+  overflow-y: auto;
+}
+
+section.caixa,
+section.caixa_verde {
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  background-color: #000;
+  color: #0f0;
+  overflow-x: hidden;
+}
+
+nav, footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #000;
+  border-top: 1px solid #0f0;
+  border-bottom: 1px solid #0f0;
+}
+
+footer {
+  font-size: 1.5em;
+  border-top: 1px dotted #0f0;
+}
+
+.shaos {
+  font-size: 2.65em; /* maior destaque */
+  font-weight: bold;
+  color: #00ff00;
+  letter-spacing: 4px;
+  text-shadow: 0 0 5px #00ff00;
+  position: relative;
+  margin-left: 20px;
+}
+
+.matrix {
+  font-size: 1.45em; /* menor que SHAOS */
+  margin-left: 5px;
+  color: #00ff00;
+  font-family: 'Share Tech Mono', monospace;
+  position: relative;
+  left: 1px;
+  top: -14px; * ✅ sobe Matrix */
+}
+
+.control {
+  display: inline-block;
+  font-size: 1.15em;
+  color: #00ffaa;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  position: absolute;
+  right: 55px; /* ✅ colado na borda direita */
+  top: 30px;   /* ✅ colado no topo da faixa */
+}
+
+.status-bar {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.0em;
+  padding: 1px 3px;
+  background-color: #000;
+  color: #00ff00;
+}
+
+section.caixa_verde_esq {
+  overflow: visible;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 12px;
+  box-shadow: 0 0 5px #0f0;
+  margin-bottom: 20px;
+  width: 7.5cm;
+}
+
+section.caixa_verde_centro {
+  overflow: visible;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 12px;
+  box-shadow: 0 0 5px #0f0;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+section.caixa_verde_dir {
+  overflow: visible;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 12px;
+  box-shadow: 0 0 5px #0f0;
+  margin-bottom: 20px;
+  width: 7cm;
+}
+
+section.caixa_verde_esq h2,
+section.caixa_verde_dir h2,
+section.caixa_verde_centro h2 {
+  margin-top: 0;
+  font-size: 1.7em;
+}
+
+#digital-clock {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 1.9em;
+  margin-top: 12px;
+  text-shadow: 0 0 6px #00ff00;
+}
+
+#analog-clock {
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+  border-radius: 50%;
+  width: 200px;    /* largura fixa */
+  height: 200px;   /* altura fixa igual à largura */
+  box-sizing: content-box;
+}
+
+.calendario {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 1.1em;
+  text-align: center;
+} 
+
+ul {
+  padding-left: 01px;  /* ou 5px para colar mais */
+  margin-left: 0;
+  list-style-position: inside; /* faz a bolinha ficar mais próxima do texto */
+  font-size: 1.3em;
+}

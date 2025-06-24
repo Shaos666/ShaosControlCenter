@@ -3,6 +3,7 @@ require_once('conexao.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 $hoje = date('w'); // 0 = domingo, 6 = sábado
+$hoje = $hoje + 1; // Alinha com o banco: 1 = domingo
 
 $sql = "SELECT hora, evento FROM compromissos WHERE semana = :hoje ORDER BY hora ASC";
 $stmt = $conn->prepare($sql);
