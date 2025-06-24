@@ -22,16 +22,16 @@ $status_git = !empty($git_path);
 $docker_info = (string) shell_exec("docker info 2>/dev/null");
 $status_docker = str_contains($docker_info, "Server Version");
 
-// 🔍 Verifica se existe algum .sql de hoje no diretório de backup
-$arquivos = glob('/mnt/g/Deposito/Backup_Docker/*' . date("Y-m-d") . '*.sql');
-$status_backup = !empty($arquivos);
+$zips = glob('/mnt/g/Deposito/Backup_Docker/*/*/sistema_' . date("Y-m-d") . '_*.zip');
+$status_backup = !empty($zips);
 
+// 🔍 Verifica se existe algum .sql de hoje no diretório de backup
 $status = [
     testar("Apache", $status_apache, "Container 'dashboard' ou 'apachephp' ativo"),
     testar("MariaDB", $status_mariadb, "Container 'mariadb_foxtrot' ativo"),
     testar("Git", $status_git, $git_path ?: "Git não encontrado"),
     testar("Docker", $status_docker, "Docker respondendo"),
-    testar("Backup", $status_backup, count($arquivos) . " arquivo(s) .SQL encontrado(s) com data de hoje"),
+    testar("Backup", $status_backup, count($zips) . " arquivo(s) ZIP encontrados hoje")
 ];
 
 $html = '<div class="status-bar">' . implode('&nbsp;&nbsp;', $status) . '</div>';

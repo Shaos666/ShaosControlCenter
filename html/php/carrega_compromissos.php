@@ -12,12 +12,12 @@ $stmt->execute(['hoje' => $hoje]);
 $resultados = $stmt->fetchAll();
 
 if ($resultados) {
-  echo "<ul>";
+  echo "<div class='agenda'>";
   foreach ($resultados as $row) {
-    $hora = substr($row['hora'], 0, 5); // Exibe apenas HH:MM
-    echo "<li><strong>$hora</strong> — {$row['evento']}</li>";
+    $hora = substr($row['hora'], 0, 5);
+    echo "<div class='item'><span class='hora'>$hora</span> {$row['evento']}</div>";
   }
-  echo "</ul>";
+  echo "</div>";
 } else {
   echo "<p>🕊️ Nenhum compromisso para hoje.</p>";
 }

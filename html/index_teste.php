@@ -42,19 +42,19 @@
     </div>
 
     <div class="content">
-      <section class="caixa_verde_centro">
+      <section class="caixa_verde_centro_e">
         <h2>🎯 Lembretes</h2>
         <div id="lembretes">
           <?php include 'php/carrega_tarefas.php'; ?>
         </div>
       </section>
 
-      <section class="caixa_verde_centro">
+      <section class="caixa_verde_centro_d">
         <h2>🎂 Aniversariantes</h2>
         <div id="aniversariantes">Carregando...</div>
       </section>
 
-      <section class="caixa_verde_centro">
+      <section class="caixa_verde_centro_d">
         <h2>🛠️ Ferramentas Rápidas</h2>
         <ul>
           <li><a href="#">🔍 Buscar Backups</a></li>

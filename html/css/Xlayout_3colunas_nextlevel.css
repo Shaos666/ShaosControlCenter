@@ -1,0 +1,195 @@
+/* =======================
+   SHAOS MATRIX CONTROL - CSS v2
+   Última atualização: 2025-06-24 21:58
+   ======================= */
+
+/* ====== LAYOUT GERAL ====== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  background-color: #000;
+  color: #0f0;
+  overflow-x: hidden;
+}
+
+#main-container {
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) auto minmax(200px, 300px);
+  gap: 8px;
+  max-width: calc(100vw - 3mm);
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav, footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #000;
+  border-top: 1px solid #0f0;
+  border-bottom: 1px solid #0f0;
+}
+
+footer {
+  font-size: 1.5em;
+  border-top: 1px dotted #0f0;
+}
+
+/* ====== TÍTULOS E HEADER ====== */
+.shaos {
+  font-size: 2.65em;
+  font-weight: bold;
+  color: #00ff00;
+  letter-spacing: 4px;
+  text-shadow: 0 0 5px #00ff00;
+  position: relative;
+  margin-left: 20px;
+}
+
+.matrix {
+  font-size: 1.45em;
+  margin-left: 5px;
+  color: #00ff00;
+  font-family: 'Share Tech Mono', monospace;
+  position: relative;
+  left: 1px;
+  top: -14px;
+}
+
+.control {
+  display: inline-block;
+  font-size: 1.15em;
+  color: #00ffaa;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  position: absolute;
+  right: 55px;
+  top: 30px;
+}
+
+/* ====== STATUS BAR ====== */
+.status-bar {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.0em;
+  padding: 1px 3px;
+  background-color: #000;
+  color: #00ff00;
+}
+
+/* ====== COLUNAS PRINCIPAIS ====== */
+.sidebar-left,
+.content,
+.sidebar-right {
+  background-color: #111;
+  border: 1px dotted #0f0;
+  padding: 7px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+/* ====== CONTEÚDO CENTRAL FLEX ====== */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 10px;
+}
+
+
+/* ====== CAIXAS DE CONTEÚDO ====== */
+section.caixa_verde_esq,
+section.caixa_verde_centro,
+section.caixa_verde_dir {
+  overflow: visible;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 12px;
+  box-shadow: 0 0 5px #0f0;
+  margin-bottom: 20px;
+
+  width: 90% !important;
+}
+
+section.caixa_verde_esq {
+  width: 7.5cm;
+}
+
+section.caixa_verde_dir {
+  width: 7cm;
+}
+
+section.caixa_verde_centro {
+  width: 100%;
+}
+
+.caixa_verde_centro_e,
+.caixa_verde_centro_d {
+  width: 45%;
+  min-width: 280px;
+  max-width: 100%;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px #0f0;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media screen and (max-width: 1000px) {
+  #main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sidebar-left,
+  .sidebar-right {
+    width: 100%;
+  }
+
+  .caixa_verde_centro_e,
+  .caixa_verde_centro_d {
+    width: 100%;
+  }
+}
+
+/* === AJUSTES DE FONTE === */
+.agenda,
+.agenda li,
+ul,
+#digital-clock,
+.calendario,
+.caixa_verde_centro_d li,
+.caixa_verde_centro_e li {
+  font-size: 1.4em;
+}
+
+#analog-clock {
+  width: 204px;
+  height: 204px;
+}
+
+#digital-clock {
+  font-size: 2.2em;
+}
+
+.calendario {
+  font-size: 1.4em;
+}
+
+section.caixa_verde_esq h2,
+section.caixa_verde_dir h2,
+section.caixa_verde_centro_d h2
+section.caixa_verde_centro_d h2
+section.caixa_verde_centro h2 {
+  font-size: 2em;
+}

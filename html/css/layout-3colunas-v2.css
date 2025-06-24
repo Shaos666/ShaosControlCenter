@@ -1,7 +1,7 @@
 #main-container {
   display: grid;
-  grid-template-columns: 7.5cm auto 7.5cm;
-  gap: 3mm;
+  grid-template-columns: minmax(200px, 300px) auto minmax(200px, 300px);
+  gap: 12px;
   max-width: calc(100vw - 3mm); /* margem de 3mm cada lado */
   margin: 0 auto;
   padding: 0;
@@ -19,7 +19,19 @@
 }
 
 .content {
+  display: flex;
   overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px; /* espaço entre os blocos */
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.caixa_verde_centro:last-child {
+  flex: 0 0 48%;
+  box-sizing: border-box;
 }
 
 section.caixa,
@@ -117,6 +129,20 @@ section.caixa_verde_centro {
   width: 100%;
 }
 
+.caixa_verde_centro_e,
+.caixa_verde_centro_d {
+  width: 45%;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px #0f0;
+  width: 40%;
+  min-width: 280px;
+  max-width: 100%;
+}
+
 section.caixa_verde_dir {
   overflow: visible;
   padding: 10px 0;
@@ -173,3 +199,72 @@ ul {
   list-style-position: inside; /* faz a bolinha ficar mais próxima do texto */
   font-size: 1.3em;
 }
+
+h2 {
+  letter-spacing: -0.5px;
+}
+
+.agenda {
+  font-family: monospace; 
+  font-size: 1.27em; 
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0; /* 0.1em ou 0 */
+  margin: 0;
+}
+
+.agenda li {
+  margin-bottom: 4px;
+  color: #00ff00;
+  font-family: monospace;
+}
+
+.agenda .item {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: baseline;
+}
+
+.agenda .hora {
+  display: inline-block;
+  width: 70px;
+  text-align: right;
+  margin-right: 10px;
+  color: #0f0;
+  font-weight: normal;
+}
+
+.caixa_verde_centro:last-child {
+  flex: 0 0 100%;
+}
+
+.full-width {
+  flex: 0 0 100%;
+}
+
+.caixa_verde_centro_d,
+.caixa_verde_centro_e,
+.caixa_verde_centro {
+  width: 90% !important;
+  margin-bottom: 16px;
+}
+
+.sidebar-left,
+.sidebar-right {
+  width: 100%;
+}
+
+.content,
+.caixa_verde_centro_d,
+.caixa_verde_centro_e {
+  background-color: #111;
+  border: 1px solid #0f0;
+  font-family: monospace;
+  color: #0f0;
+}
+
+.content {
+  padding: 10px;
+  gap: 16px;
+}
+

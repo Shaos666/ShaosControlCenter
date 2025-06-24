@@ -1,0 +1,139 @@
+
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  background-color: #121212;
+  color: #00FF00;
+}
+
+/* ================= CONTAINER PRINCIPAL ================= */
+#main-container {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) auto minmax(240px, 320px);
+  gap: 12px;
+  max-width: calc(100vw - 3mm);
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BLOCO ESQUERDO ================= */
+.sidebar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ================= BLOCO DIREITO ================= */
+.sidebar-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ================= CONTEÚDO CENTRAL ================= */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ================= CAIXAS DE CONTEÚDO ================= */
+.caixa_verde,
+.caixa_verde_centro_e,
+.caixa_verde_centro_d {
+  background-color: #000;
+  border: 2px solid #00FF00;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #00FF00;
+  padding: 10px;
+}
+
+.caixa_verde h2,
+.caixa_verde_centro_e h2,
+.caixa_verde_centro_d h2 {
+  font-size: 1.3em;
+  color: #00FF00;
+  margin-bottom: 6px;
+}
+
+/* ================= TEXTO DOS ITENS ================= */
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 1.2em;
+}
+
+ul li {
+  margin-bottom: 4px;
+}
+
+/* ================= COMPROMISSOS DO DIA ================= */
+#compromissos {
+  font-size: 1.1em;
+}
+
+#compromissos table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#compromissos td {
+  padding: 2px 4px;
+}
+
+/* ================= ANIVERSARIANTES / LEMBRETES ================= */
+.aniversariantes,
+.lembretes {
+  font-size: 1.2em;
+}
+
+/* ================= CALENDÁRIO ================= */
+#calendar-container {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+#calendar-container .today {
+  background-color: lime;
+  color: black;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+/* ================= RELÓGIO ================= */
+#clock-container {
+  text-align: center;
+  font-size: 1.4em;
+}
+
+#clock-analog {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+}
+
+/* ================= FERRAMENTAS RÁPIDAS ================= */
+#ferramentas-rapidas {
+  font-size: 1.2em;
+}
+
+#ferramentas-rapidas a {
+  text-decoration: none;
+  color: violet;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+/* ================= RODAPÉ ================= */
+footer {
+  text-align: center;
+  font-size: 1em;
+  margin-top: 10px;
+  padding: 6px;
+  color: #00FF00;
+}
+
