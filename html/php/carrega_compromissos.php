@@ -15,7 +15,7 @@ if ($resultados) {
   echo "<div class='agenda'>";
   foreach ($resultados as $row) {
     $hora = substr($row['hora'], 0, 5);
-    echo "<div class='item'><span class='hora'>$hora</span> {$row['evento']}</div>";
+    echo "<div class='item' data-hora='$hora'><span class='hora'>$hora</span> {$row['evento']}</div>";
   }
   echo "</div>";
 } else {

@@ -268,3 +268,44 @@ h2 {
   gap: 16px;
 }
 
+#aniversariantes {
+  padding: 5px 10px;
+}
+
+.aniversariante-bloco {
+  margin-bottom: 10px;
+}
+
+.aniversariante-nome {
+  font-size: 1.3em;
+  color: #00ff66;
+  font-weight: bold;
+  display: block;
+}
+
+.aniversariante-tipo {
+  font-size: 1.2em;
+  font-style: italic;
+  color: #66ffcc;
+  margin-left: 2em;
+  display: block;
+}
+
+.item.compromisso-agora {
+  background-color: #0f0;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 3px 6px;
+}
+
+.compromisso-agora {
+  background-color: #0f0;
+  color: #000 !important; /* força o texto preto no destaque */
+  font-weight: bold;
+}
+
+.compromisso-agora .hora {
+  color: #000 !important; /* garante que a hora também fique preta */
+  font-weight: bold;
+}

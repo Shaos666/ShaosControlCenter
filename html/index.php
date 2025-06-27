@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>SHAOS MATRIX CONTROL CENTER - TESTE</title>
   <link rel="icon" href="img/shaos-icon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/layout-3colunas-v2_2025-06-24_18-08.css">  
+  <link rel="stylesheet" href="css/matrix-theme.css">  
   <script src="js/clock.js" defer></script>
   <script src="js/dashboard.js" defer></script>
 </head>
