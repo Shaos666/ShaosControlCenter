@@ -18,11 +18,14 @@ html/php/db.env.php
 # 🐳 Docker
 docker-compose.override.yml
 Dockerfile.*
+docker/
+docker/volumes/
 
 # 🚫 Cache / temporários
 *.swp
 *.tmp
 *.cache
+.cache/
 __pycache__/
 node_modules/
 
@@ -41,13 +44,19 @@ html/testes/
 html/img/*
 !html/img/logo.png
 
-# ⚙️ Executáveis / binários
+#   Executáveis / binários
 *.exe
 *.out
 *.bin
 
-# ⚠️ Backup automático do editor
+#   Backup automático do editor
 *~
 
 # Git próprio
 .gitignore
+
+# Outros
+logs/
+Thumbs.db
+backup/
+config/
