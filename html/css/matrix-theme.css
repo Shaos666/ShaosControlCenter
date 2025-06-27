@@ -273,12 +273,11 @@ h2 {
 }
 
 .aniversariante-bloco {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .aniversariante-nome {
   font-size: 1.3em;
-  color: #00ff66;
   font-weight: bold;
   display: block;
 }
@@ -286,8 +285,7 @@ h2 {
 .aniversariante-tipo {
   font-size: 1.2em;
   font-style: italic;
-  color: #66ffcc;
-  margin-left: 2em;
+  margin-left: 3em;
   display: block;
 }
 
