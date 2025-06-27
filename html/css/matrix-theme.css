@@ -20,9 +20,21 @@
 
 .content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Máximo de 2 colunas */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
-  padding: 10px; 
+  padding: 10px;
+}
+
+@media (max-width: 950px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
 }
 
 .caixa_verde_centro:last-child {
@@ -288,4 +300,16 @@ h2 {
   height: auto;         /* permite crescer com conteúdo */
   padding: 10px;        /* evita exagero de espaçamento */
   margin-bottom: 12px;
+}
+
+.caixa_verde_centro h2,
+.caixa_verde_centro_d h2,
+.caixa_verde_centro_e h2,
+.caixa_verde_esq h2,
+.caixa_verde_dir h2 {
+  margin-top: 0px;     /* reduz o espaço acima do título */
+  margin-bottom: 8px;  /* opcional, se quiser menos espaço abaixo */
+  font-size: 1.7em;    /* mantém a leitura clara, mas ajustável */
+  line-height: 1.1;     /* mais compacto */
+  text-align: center;
 }
