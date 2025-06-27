@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/matrix-theme.css">  
   <script src="js/clock.js" defer></script>
   <script src="js/dashboard.js" defer></script>
+  <script src="js/refresh.js"></script>
 </head>
 <body>
 
