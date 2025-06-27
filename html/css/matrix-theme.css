@@ -279,3 +279,14 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
 }
+
+
+.caixa_verde_esq,
+.caixa_verde_dir,
+.caixa_verde_centro_d,
+.caixa_verde_centro_e {
+  min-height: 80px;     /* só altura mínima */
+  height: auto;         /* permite crescer com conteúdo */
+  padding: 10px;        /* evita exagero de espaçamento */
+  margin-bottom: 12px;
+}
