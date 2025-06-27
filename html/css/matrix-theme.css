@@ -159,9 +159,13 @@ section.caixa_verde_dir {
 
 section.caixa_verde_esq h2,
 section.caixa_verde_dir h2,
-section.caixa_verde_centro h2 {
+section.caixa_verde_centro h2,
+section.caixa_verde_centro_d h2,
+section.caixa_verde_centro_e h2 {
   margin-top: 0;
   font-size: 1.7em;
+  line-height: 1.1;
+  text-align: center;
 }
 
 #digital-clock {
@@ -180,8 +184,8 @@ section.caixa_verde_centro h2 {
   margin: 0 auto;
   background-color: black;
   border-radius: 50%;
-  width: 200px;    /* largura fixa */
-  height: 200px;   /* altura fixa igual à largura */
+  width: 150px;    /* largura fixa */
+  height: 150px;   /* altura fixa igual à largura */
   box-sizing: content-box;
 }
 
@@ -273,7 +277,7 @@ h2 {
 }
 
 .aniversariante-bloco {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .aniversariante-nome {
