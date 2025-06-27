@@ -20,13 +20,12 @@
 
 .content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  grid-template-columns: repeat(2, 1fr); /* Máximo de 2 colunas */
   gap: 16px;
   padding: 10px; 
 }
 
 .caixa_verde_centro:last-child {
-  fDeseja esse verificador?lex: 0 0 48%;
   box-sizing: border-box;
 }
 
