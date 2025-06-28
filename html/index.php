@@ -63,6 +63,19 @@
           <li><a href="#">🐧 Entrar no WSL</a></li>
         </ul>
       </section>
+
+      <section class="caixa_verde_centro_d">
+        <h2>🌐 Links Rápidos</h2>
+        <div class="favoritos-box">
+          <ul class="favoritos-lista">
+            <?php include 'php/carrega_favoritos.php'; ?>
+          </ul>
+        </div>
+        <a href="php/editar_favoritos.php" class="botao-matrix" target="_blank">Atualizar Favoritos</a>
+      </section>
+
+
+      </section>
     </div>
 
     <div class="sidebar-right">
