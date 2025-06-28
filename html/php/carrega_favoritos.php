@@ -2,7 +2,7 @@
 include_once __DIR__ . '/conexao.php';
 
 try {
-    $stmt = $conn->prepare("SELECT nome, url FROM favoritos WHERE visivel = 1 ORDER BY nome ASC LIMIT 6");
+    $stmt = $conn->prepare("SELECT nome, url FROM favoritos WHERE visivel = 1 ORDER BY nome ASC");
     $stmt->execute();
     $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

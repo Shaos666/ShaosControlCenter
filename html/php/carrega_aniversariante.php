@@ -20,7 +20,7 @@ try {
             echo "</div>";
         }
     } else {
-        echo "<div class='aniversariante-nome'>🎂 Nenhum aniversariante hoje</div>";
+        echo "<p style='text-align:center;font-size: 1.3em; font-weight: bold;'>&quot;Nenhum aniversariante hoje&quot;</p>";
     }
 } catch (PDOException $e) {
     echo "<div class='aniversariante-nome'>Erro: " . htmlspecialchars($e->getMessage()) . "</div>";

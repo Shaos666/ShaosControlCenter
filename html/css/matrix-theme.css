@@ -141,6 +141,7 @@ section.caixa_verde_centro {
   width: 40%;
   min-width: 280px;
   max-width: 100%;
+padding-bottom: 4px;
 }
 
 section.caixa_verde_dir {
@@ -357,11 +358,25 @@ h2 {
 }
 
 .favoritos-box {
-  max-height: 250px;
+  max-height: 140px;
   overflow-y: auto;
   padding-right: 10px;
   scrollbar-color: #0f0 #111;
   scrollbar-width: thin;
+}
+
+.favoritos-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.favoritos-box::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.favoritos-box::-webkit-scrollbar-thumb {
+  background-color: #0f0;
+  border-radius: 6px;
+  border: 1px solid #0f0;
 }
 
 .favoritos-lista {
@@ -371,6 +386,14 @@ h2 {
 
 .favoritos-lista li {
   margin-bottom: 6px;
+  display: list-item;
+  list-style-position: inside;
+}
+
+.favoritos-lista li::before {
+  content: "• ";
+  color: #00ff00;
+  margin-right: 6px;
 }
 
 .favoritos-lista a {
@@ -386,8 +409,9 @@ h2 {
 }
 
 .botao-matrix {
-  display: inline-block;
-  margin-top: 10px;
+  display: block;                 
+  margin: 20px auto 4px auto;
+  margin-bottom: -25px;
   padding: 8px 16px;
   border: 1px dotted #0f0;
   border-radius: 8px;
@@ -398,6 +422,7 @@ h2 {
   font-size: 1.1em;
   cursor: pointer;
   transition: 0.3s ease;
+  width: fit-content;
 }
 
 .botao-matrix:hover {
@@ -407,3 +432,6 @@ h2 {
   box-shadow: 0 0 10px #0f0;
 }
 
+.box-links {
+  text-align: center;
+}
