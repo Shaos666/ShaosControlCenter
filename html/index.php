@@ -71,7 +71,7 @@
             <?php include 'php/carrega_favoritos.php'; ?>
           </ul>
         </div>
-        <a href="php/editar_favoritos.php" class="botao-matrix" target="_blank">Atualizar Favoritos</a>
+        <a href="php/favoritos.php" class="botao-matrix" target="_blank">Atualizar Favoritos</a>
       </section>
 
 
