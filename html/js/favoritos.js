@@ -34,3 +34,41 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+<script>
+  document.getElementById('btn-atualizar-favoritos').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.open(this.href, '_blank');
+
+    // Monitora o retorno do foco à janela principal
+    window.onfocus = function () {
+      document.getElementById('box-favoritos').innerHTML = 'Atualizando...';
+      fetch('php/favoritos_lista.php')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('box-favoritos').innerHTML = html;
+        });
+      window.onfocus = null; // executa só uma vez
+    };
+  });
+</script>
+
+/**
+ * Recarrega a lista de favoritos sem atualizar a página inteira.
+ */
+function refreshFavoritos() {
+  const box = document.getElementById("box-favoritos");
+
+  if (!box) return;
+
+  box.innerHTML = "Atualizando...";
+
+  fetch("php/carrega_favoritos.php")
+    .then((res) => res.text())
+    .then((html) => {
+      box.innerHTML = html;
+    })
+    .catch((err) => {
+      box.innerHTML = "<p>Erro ao atualizar favoritos.</p>";
+      console.error("Erro ao carregar favoritos:", err);
+    });
+}

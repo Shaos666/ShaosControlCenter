@@ -66,11 +66,14 @@
 
       <section class="caixa_verde_centro_d">
         <h2>🌐 Links Rápidos</h2>
-        <div class="favoritos-box">
-          <ul class="favoritos-lista">
-            <?php include 'php/carrega_favoritos.php'; ?>
-          </ul>
+        <div id="box-favoritos">
+          <div class="favoritos-box">
+            <ul class="favoritos-lista">
+              <?php include 'php/carrega_favoritos.php'; ?>
+            </ul>
+          </div>
         </div>
+
         <a href="php/favoritos.php" class="botao-matrix" target="_blank">Atualizar Favoritos</a>
       </section>
 
