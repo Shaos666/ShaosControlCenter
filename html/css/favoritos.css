@@ -38,7 +38,7 @@ h1, h2 {
 /* ÁREA DE SCROLL TABELA    */
 /* ========================= */
 .scroll-area {
-  max-height: 450px;
+  max-height: 250px;
   overflow-y: auto;
   padding-right: 10px;
 }
@@ -71,6 +71,28 @@ h1, h2 {
   font-size: 1em;
 }
 
+.linha-box-secundario input[type="text"] {
+  background-color: #000;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 6px 10px;
+  width: 260px;
+  font-size: 1em;
+  font-family: monospace;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.linha-box-secundario input[type="text"]::placeholder {
+  color: #090;
+  opacity: 0.7;
+}
+
+.linha-box-secundario input[type="text"]:focus {
+  border-color: #5f5;
+  box-shadow: 0 0 4px #0f0;
+}
+
 /* ============================= */
 /* LINHA DE INCLUSÃO E ATUALIZAÇÃO */
 /* ============================= */
@@ -83,6 +105,9 @@ h1, h2 {
   padding-right: 32px;
   margin-top: 12px;                 /* Aumentado espaço entre info */
   gap: 80px;                        /* Espaço maior entre os dois campos */
+  display: block;
+  text-align: left;
+  margin-left: 20px;
 }
 
 /* ======================== */
@@ -110,15 +135,26 @@ label.check {
 /* CONTADORES DE CARACTERES DOS CAMPOS */
 /* =================================== */
 .campo-com-contador {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 4px; /* ou ajuste para 6px, 10px, conforme visual */
+/*  position: relative;     */
+/*  display: inline-block;  */
 }
 
 .campo-com-contador .caracteres {
-  position: absolute;
-  bottom: -1.6em;
-  right: 4px;
-  font-size: 0.9em;             /* AUMENTADO */
+  position: static;         /* deixa ele seguir o fluxo normal */
+  margin-left: 1px;         /* separa do campo */
+  margin-right: 9px;
+  font-size: 0.9em;
+  color: #5f5;
+  font-size: 1.2em;
+/*  font-weight: bold;    */
+  font-family: monospace;
+/*  position: absolute;*/
+/*  bottom: -1.6em;    */
+/*  right: 4px;        */ 
+/*  font-size: 0.9em;  */           /* AUMENTADO */
   color: #5f5;
 }
 
@@ -174,5 +210,49 @@ input[type="submit"]:hover, button:hover {
 /* ============================ */
 .box-adicao form, .box-reserva {
   text-align: center;
+}
+
+.botao-voltar {
+  display: inline-block;
+  padding: 8px 14px;
+  background-color: #111;
+  color: #0f0;
+  text-decoration: none;
+  border: 1px dotted #0f0;
+  font-family: monospace;
+  margin-top: 10px;
+}
+.botao-voltar:hover {
+  background-color: #0f0;
+  color: #000;
+}
+
+/* Ajusta os campos do box de inclusão para seguir o mesmo layout da listagem */
+.box-adicao .linha-editavel input[type="text"] {
+  background-color: #000;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 6px;
+  width: 260px;
+  font-size: 1em;
+  font-family: monospace;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.box-adicao input[type="text"]::placeholder {
+  color: #090;
+  opacity: 0.7;
+}
+
+.box-adicao input[type="text"]:focus {
+  border-color: #5f5;
+  box-shadow: 0 0 4px #0f0;
+}
+
+.box-adicao .campo-com-contador {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
