@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: dashboard_foxtrot
+    container_name: dashboard
     restart: always
     ports:
       - "8083:80"
