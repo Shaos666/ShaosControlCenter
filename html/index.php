@@ -46,7 +46,7 @@
       <section class="caixa_verde_centro_e">
         <h2>🎯 Lembretes</h2>
         <div id="lembretes">
-          <?php include 'php/carrega_tarefas.php'; ?>
+          <!-- ?php include 'php/carrega_tarefas.php'; ? -->
         </div>
       </section>
 

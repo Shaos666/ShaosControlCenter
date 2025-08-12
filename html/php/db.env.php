@@ -6,7 +6,7 @@ if (basename($_SERVER['SCRIPT_NAME']) == basename(__FILE__)) {
 }
 
 return [
-  'host' => 'mariadb_foxtrot',
+  'host' => 'mariadb',
   'dbname' => 'dashboarddb',
   'user' => 'shaos',
   'pass' => 'Code4Shaos!'

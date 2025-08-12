@@ -1,17 +1,25 @@
 <?php
-require_once('conexao.php');
+include_once __DIR__ . '/conexao.php';
 
-$sql = "SELECT texto FROM lembretes WHERE visivel = 1 ORDER BY dt_inc DESC, hr_inc DESC LIMIT 10";
-$stmt = $conn->query($sql);
-$lembretes = $stmt->fetchAll();
+try {
+  $sql = "SELECT id, texto, checked, visivel FROM lembretes ORDER BY data_inclusao DESC";
+  $stmt = $conn->query($sql);
 
-if ($lembretes) {
-  echo "<ul>";
-  foreach ($lembretes as $item) {
-    echo "<li>{$item['texto']}</li>";
+//  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+//    $id = $row['id'];
+//    $texto = htmlspecialchars($row['texto']);
+//    $checked = ($row['checked']) ? 'checked' : '';
+
+//    echo "<div class='mod-md-bloco'>";
+//    echo "  <div class='mod-checkbox'>";
+//    echo "    <input type='checkbox' data-id='$id' $checked/>";
+//    echo "  </div>";
+//    echo "  <div class='mod-descricao'>";
+//    echo      $texto;
+//    echo "  </div>";
+//    echo "</div>";
   }
-  echo "</ul>";
-} else {
-  echo "<p>📭 Nenhum lembrete visível no momento.</p>";
+} catch (PDOException $e) {
+  echo "Erro ao carregar lembretes: " . $e->getMessage();
 }
-?>
+
