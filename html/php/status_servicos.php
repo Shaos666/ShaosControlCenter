@@ -1,7 +1,6 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
 
-// Função de status com tooltip
 function testar($nome, $resultado, $tooltip = '') {
     $icone = match ($resultado) {
         true  => '✅',
@@ -12,7 +11,7 @@ function testar($nome, $resultado, $tooltip = '') {
     return "<span class='status-item' title='{$title}'>{$nome}: {$icone}</span>";
 }
 
-// Função para verificar se script está no crontab
+// ✅ Função agora fora de "testar"
 function verificar_cron($script) {
     $cron = (string) shell_exec("crontab -l 2>/dev/null");
     return str_contains($cron, $script);
@@ -23,21 +22,15 @@ $containers = (string) shell_exec("docker ps --format '{{.Names}}'");
 $status_apache = str_contains($containers, "dashboard") || str_contains($containers, "apachephp");
 $status_mariadb = str_contains($containers, "mariadb");
 
-// Verificação do Git
 $git_path = trim((string) shell_exec("which git"));
 $status_git = !empty($git_path);
 
-// Verificação do Docker
 $docker_info = (string) shell_exec("docker info 2>/dev/null");
 $status_docker = str_contains($docker_info, "Server Version");
 
-
-// Verificação do Backup do dia
 $zips = glob('/mnt/g/Deposito/Backup_Docker/*/*/sistema_' . date("Y-m-d") . '_*.zip');
 $status_backup = !empty($zips);
 
-
-// Verificação se o script está agendado no cron
 $status_cron = verificar_cron('startdodia.sh');
 
 // 🔍 Verifica se existe algum .sql de hoje no diretório de backup
@@ -46,9 +39,10 @@ $status = [
     testar("MariaDB", $status_mariadb, "Container 'mariadb' ativo"),
     testar("Git", $status_git, $git_path ?: "Git não encontrado"),
     testar("Docker", $status_docker, "Docker respondendo"),
-    testar("Backup", $status_backup, count($zips) . " arquivo(s) ZIP encontrados hoje"),
-    testar("Cron", $status_cron, $status_cron ? "Agendamento encontrado" : "Script ausente no cron")
+    testar("Backup", $status_backup, count($zips) . " arquivo(s) ZIP encontrados hoje"),  // ✅ <- aqui
+    testar("Cron", $status_cron, $status_cron ? "Agendamento encontrado" : "Script ausente no cron")    
 ];
+
 
 $html = '<div class="status-bar">' . implode('&nbsp;&nbsp;', $status) . '</div>';
 

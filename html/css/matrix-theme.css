@@ -1,428 +1,458 @@
-#main-container {
-  display: grid;
-  grid-template-columns: minmax(200px, 300px) auto minmax(200px, 300px);
-  gap: 12px;
-  max-width: calc(100vw - 3mm); /* margem de 3mm cada lado */
-  margin: 0 auto;
+/* ======================================== */
+/* SHAOS MATRIX THEME - ORGANIZAÇÃO FOX 🦊 */
+/* ======================================== */
+
+/* ════════════════ [1] RESET / BASE ════════════════ */
+/* ══════════════════════════════════════ */
+/* [1] RESET & BASE - CONFIGURAÇÃO GERAL */
+/* ══════════════════════════════════════ */
+
+/* Zera margens e paddings padrão dos navegadores */
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.sidebar-left,
-.content,
-.sidebar-right {
-  background-color: #111;
-  border: 1px dotted #0f0;
-  padding: 7px;
-  font-family: monospace;
-  color: #0f0;
-}
-
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  padding: 10px;
-  background-color: #111;
-  border: 1px solid #0f0;
-  font-family: monospace;
-  color: #0f0;
-}
-
-.caixa_verde_centro:last-child {
-  flex: 0 0 48%;
-  box-sizing: border-box;
-}
-
-section.caixa,
-section.caixa_verde {
-  margin-bottom: 20px;
-  border-radius: 12px;
+/* Configurações globais */
+:root {
+  --cor-fundo: #000;
+  --cor-texto: #0f0;
+  --cor-secundaria: #111;
+  --borda-padrao: 1px solid var(--cor-texto);
+  --sombra-texto: 0 0 6px var(--cor-texto);
+  --fonte-padrao: monospace;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: monospace;
-  background-color: #000;
-  color: #0f0;
-  overflow-x: hidden;
+  font-family: var(--fonte-padrao);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
 }
 
-nav, footer {
+/* ════════════════ [2] ESTRUTURA GLOBAL ════════════════ */
+/* BODY, NAV, MAIN, FOOTER */
+
+/* ══════════════════════════════════════ */
+/* [2.0] ESTRUTURA - HEADER / TOPO GERAL */
+/* ══════════════════════════════════════ */
+
+.header-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+  display: flex;
+}
+
+header {
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--cor-texto);
+}
+
+header h1 {
+  font-size: 2.4em;
+  line-height: 1.1;
   text-align: center;
-  padding: 10px;
-  background-color: #000;
-  border-top: 1px solid #0f0;
-  border-bottom: 1px solid #0f0;
+  margin: 0;
+  color: var(--cor-texto);
+  text-shadow: var(--sombra-texto);
 }
 
-footer {
-  font-size: 1.5em;
-  border-top: 1px dotted #0f0;
+.header-free {
+  position: relative;
+  width: 100%;
+  height: 40px; /* ajuste conforme o layout */
 }
 
+/* Títulos isolados no Header */
 .shaos {
-  font-size: 2.65em; /* maior destaque */
+  position: absolute;
+  top: 0;
+  left: 3px;
+  font-size: 4em;
   font-weight: bold;
   color: #00ff00;
-  letter-spacing: 4px;
-  text-shadow: 0 0 5px #00ff00;
-  position: relative;
-  margin-left: 20px;
+  text-shadow: var(--sombra-texto);
 }
 
 .matrix {
-  font-size: 1.45em; /* menor que SHAOS */
-  margin-left: 5px;
-  color: #00ff00;
-  font-family: 'Share Tech Mono', monospace;
-  position: relative;
-  left: 1px;
-  top: -14px; * ✅ sobe Matrix */
+  position: absolute;
+  top: 25px;
+  left: 213px;
+  transform: translate(-50%, -50%);
+  font-size: 2.8em;
+  font-style: italic;
+  color: #00cc00;
+  text-shadow: var(--sombra-texto);
+  z-index: 1;
 }
 
 .control {
-  display: inline-block;
-  font-size: 1.15em;
-  color: #00ffaa;
-  font-family: 'Orbitron', sans-serif;
-  letter-spacing: 1px;
   position: absolute;
-  right: 55px; /* ✅ colado na borda direita */
-  top: 30px;   /* ✅ colado no topo da faixa */
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 2.2em;
+  color: #00ff00;
+  text-shadow: 0 0 4px var(--cor-texto);
+}
+
+
+/* ══════════════════════════════════════ */
+/* [2.1] ESTRUTURA - BODY / CONTAINER    */
+/* ══════════════════════════════════════ */
+
+.page-container {
+  padding: 0 10px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ══════════════════════════════════════ */
+/* [2.2] ESTRUTURA - NAV / TOPO FIXO     */
+/* ══════════════════════════════════════ */
+
+.nav-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  height: 20px; /* ajuste conforme layout */
 }
 
 .status-bar {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.0em;
-  padding: 1px 3px;
-  background-color: #000;
-  color: #00ff00;
+  text-align: center;
 }
 
-section.caixa_verde_esq {
-  overflow: visible;
-  padding: 10px 0;
+.header-flex {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  background-color: #000;
-  border: 1px solid #0f0;
-  border-radius: 12px;
-  box-shadow: 0 0 5px #0f0;
-  margin-bottom: 20px;
-  width: 7.5cm;
+  width: 100%;
+  text-shadow: var(--sombra-texto);
+  font-size: 2em;
+  color: var(--cor-texto);
 }
 
-section.caixa_verde_centro {
-  overflow: visible;
-  padding: 10px 0;
+.header-left {
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+.header-center {
+  font-style: italic;
+  font-size: 1.4em;
+  color: #0c0;
+  text-align: center;
+  flex: 1;
+}
+
+.header-right {
+  text-align: right;
+  font-size: 1.2em;
+  padding-right: 10px;
+}
+
+/* ══════════════════════════════════════ */
+/* [2.3] ESTRUTURA - MAIN / CONTEÚDO     */
+/* ══════════════════════════════════════ */
+
+main {
+  display: grid;
+  grid-template-columns: 320px auto 320px;
+  gap: 9px;
+  min-height: calc(100vh - 220px);
+  padding: 0;
+  margin: 10px 0;
+}
+
+@media (max-width: 850px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════ */
+/* [2.4] ESTRUTURA - FOOTER / RODAPÉ     */
+/* ══════════════════════════════════════ */
+
+.footer-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  background-color: #000;
-  border: 1px solid #0f0;
-  border-radius: 12px;
-  box-shadow: 0 0 5px #0f0;
-  margin-bottom: 20px;
+  padding: 0 10px;
   width: 100%;
 }
 
-.caixa_verde_centro_e,
-.caixa_verde_centro_d {
-  width: 45%;
-  background-color: #000;
-  border: 1px solid #0f0;
-  border-radius: 10px;
+footer {
+  padding: 0.5rem;
+  background-color: #001100;
+  border-top: 2px solid var(--cor-texto);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  width: 100%;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════ */
+/* [2.5] RESERVA DE ÁREA EXTRA (opcional)*/
+/* ══════════════════════════════════════ */
+
+/* Aqui você pode inserir avisos, banners, mensagens, etc. */
+.aviso-central {
+  background-color: #111;
+  color: #0f0;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 8px;
+  margin: 10px auto;
+  border: 1px dotted #0f0;
+  border-radius: 6px;
+  max-width: 90%;
+}
+
+
+/* ════════════════ [3] COMPONENTES / MÓDULOS PRINCIPAIS ════════════════ */
+/* Blocos visuais, cards, containers */
+/* ══════════════════════════════════════ */
+/* [3.0] COMPONENTES - BOXES / BLOCOS    */
+/* ══════════════════════════════════════ */
+
+.box {
+  background-color: var(--cor-fundo);
+  border: var(--borda-padrao);
+  border-radius: 6px;
   padding: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 0 5px #0f0;
-  width: 40%;
-  min-width: 280px;
-  max-width: 100%;
-padding-bottom: 4px;
+  box-shadow: 0 0 6px var(--cor-texto);
+  margin-bottom: 9px;
+  width: 92%;
+  height: auto;
+  min-height: unset;
 }
 
-section.caixa_verde_dir {
-  overflow: visible;
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #000;
-  border: 1px solid #0f0;
-  border-radius: 12px;
-  box-shadow: 0 0 5px #0f0;
-  margin-bottom: 20px;
-  width: 7cm;
-}
-
-section.caixa_verde_esq h2,
-section.caixa_verde_dir h2,
-section.caixa_verde_centro h2,
-section.caixa_verde_centro_d h2,
-section.caixa_verde_centro_e h2 {
-  margin-top: 0;
-  font-size: 1.7em;
-  line-height: 1.1;
+.box-titulo {
   text-align: center;
-}
-
-#digital-clock {
-  display: block;
-  width: 100%;
-  text-align: center;
-  color: #00ff00;
-  font-family: monospace;
   font-size: 1.9em;
-  margin-top: 12px;
-  text-shadow: 0 0 6px #00ff00;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  padding: 1px 0;
+  color: var(--cor-texto);
+  background-color: transparent;
+  text-shadow: 0 0 3px var(--cor-texto);
 }
 
-#analog-clock {
+.caixinha {
+  background-color: var(--cor-fundo);
+  border: var(--borda-padrao);
+  border-radius: 6px;
+  padding: 6px;
+  margin: 6px;
+  color: var(--cor-texto);
+  font-family: var(--fonte-padrao);
   display: block;
-  margin: 0 auto;
-  background-color: black;
-  border-radius: 50%;
-  width: 150px;    /* largura fixa */
-  height: 150px;   /* altura fixa igual à largura */
-  box-sizing: content-box;
+  width: auto;
 }
 
-.calendario {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  font-size: 1.1em;
+/* ══════════════════════════════════════ */
+/* [3.01] COMPONENTES - CABEÇALHO DE BOX */
+/* ══════════════════════════════════════ */
+
+.cabecalho-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
   text-align: center;
-} 
-
-ul {
-  padding-left: 01px;  /* ou 5px para colar mais */
-  margin-left: 0;
-  list-style-position: inside; /* faz a bolinha ficar mais próxima do texto */
-  font-size: 1.3em;
 }
 
-h2 {
-  letter-spacing: -0.5px;
+.cabecalho-box img,
+.cabecalho-box .icone {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 2px #0f0);
 }
 
-.agenda {
-  font-family: monospace; 
-  font-size: 1.27em; 
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0; /* 0.1em ou 0 */
+.cabecalho-box .box-titulo {
   margin: 0;
 }
 
-.agenda li {
-  margin-bottom: 4px;
-  color: #00ff00;
-  font-family: monospace;
-}
+/* ══════════════════════════════════════ */
+/* [3.01] COMPONENTES - CABEÇALHO DE BOX */
+/* ══════════════════════════════════════ */
+/* Estrutura para alinhar ícone + título centralizado */
+/* Ex: <div class="cabecalho-box">📅 + Título</div> */
 
-.agenda .item {
-  margin-bottom: 5px;
+.cabecalho-box {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
-.agenda .hora {
-  display: inline-block;
-  width: 70px;
-  text-align: right;
-  margin-right: 10px;
-  color: #0f0;
-  font-weight: normal;
+.cabecalho-box .icone {
+  font-size: 1.6em;
+  filter: drop-shadow(0 0 2px #0f0);
 }
 
-.caixa_verde_centro:last-child {
-  flex: 0 0 100%;
+.cabecalho-box .box-titulo {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin: 0;
+  text-shadow: 0 0 4px var(--cor-texto);
 }
 
-.full-width {
-  flex: 0 0 100%;
+/* ══════════════════════════════════════ */
+/* [3.02] COMPONENTES - SIGNO DO DIA     */
+/* ══════════════════════════════════════ */
+
+#signo {
+  ...
 }
 
-.caixa_verde_centro_d,
-.caixa_verde_centro_e,
-.caixa_verde_centro {
-  width: 90% !important;
-  margin-bottom: 16px;
+/* ══════════════════════════════════════ */
+/* [3.03] COMPONENTES - FASE DA LUA      */
+/* ══════════════════════════════════════ */
+
+#fase-lua {
+  text-align: center;
+  color: #88ff88;
+  font-size: 1.1em;
+  margin: -4px 0 12px;
+  font-style: italic;
+  display: block;
 }
 
-.sidebar-left,
-.sidebar-right {
+
+/* ══════════════════════════════════════ */
+/* [3.1] COMPONENTES - FLEX & COLUNAS    */
+/* ══════════════════════════════════════ */
+
+.box-centro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+@media (max-width: 850px) {
+  .box-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coluna-esquerda,
+.coluna-direita {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.center-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   width: 100%;
 }
 
-.content,
-.caixa_verde_centro_d,
-.caixa_verde_centro_e {
-  background-color: #111;
-  border: 1px solid #0f0;
-  font-family: monospace;
-  color: #0f0;
-}
+/* ══════════════════════════════════════ */
+/* [3.2] COMPONENTES - SCROLL & LISTAS   */
+/* ══════════════════════════════════════ */
 
-.content {
-  padding: 10px;
-  gap: 16px;
-}
-
-#aniversariantes {
-  padding: 5px 10px;
-}
-
-.aniversariante-bloco {
-  margin-bottom: 3px;
-}
-
-.aniversariante-nome {
-  font-size: 1.3em;
-  font-weight: bold;
-  display: block;
-}
-
-.aniversariante-tipo {
-  font-size: 1.2em;
-  font-style: italic;
-  margin-left: 3em;
-  display: block;
-}
-
-.item.compromisso-agora {
-  background-color: #0f0;
-  color: #000;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 3px 6px;
-}
-
-.compromisso-agora {
-  background-color: #0f0;
-  color: #000 !important; /* força o texto preto no destaque */
-  font-weight: bold;
-}
-
-.compromisso-agora .hora {
-  color: #000 !important; /* garante que a hora também fique preta */
-  font-weight: bold;
-}
-
-@media (max-width: 960px) {
-  .content {
-    grid-template-columns: 1fr; /* volta a uma coluna em telas menores */
-  }
-
-  .caixa_verde_centro_d,
-  .caixa_verde_centro_e {
-    width: 100% !important;
-  }
-}
-
-.ferramentas a {
-  color: #39ff14; /* Verde Matrix */
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.2s ease-in-out;
-}
-
-.ferramentas a:hover {
-  color: #00ff00;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-  transform: scale(1.05);
-}
-
-.ferramentas li::before {
-  content: "• ";
-  color: #00ff00;
-  text-shadow: 0 0 4px #00ff00;
-}
-
-.caixa_verde_centro_d ul li a {
-  color: #39ff14;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  display: inline-block;
-}
-
-.caixa_verde_centro_d ul li a:hover {
-  color: #00ff00;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-  transform: scale(1.05);
-}
-
-.favoritos-box {
-  max-height: 140px;
+.box-scroll {
+  border: none !important;
+  background: transparent !important;
+  max-height: 120px;
   overflow-y: auto;
+  margin: 0 auto 10px auto;
   padding-right: 10px;
+  background-color: #111;
+  width: 90%;
   scrollbar-color: #0f0 #111;
   scrollbar-width: thin;
 }
 
-.favoritos-box::-webkit-scrollbar {
+.box-scroll::-webkit-scrollbar {
   width: 6px;
 }
 
-.favoritos-box::-webkit-scrollbar-track {
+.box-scroll::-webkit-scrollbar-track {
   background: #111;
 }
 
-.favoritos-box::-webkit-scrollbar-thumb {
-  background-color: #0f0;
-  border-radius: 6px;
-  border: 1px solid #0f0;
+.box-scroll::-webkit-scrollbar-thumb {
+  background-color: #00ff00;
+  border-radius: 3px;
+  border: 1px solid #00ff00;
 }
 
-.favoritos-lista {
-  list-style-type: none;
-  padding-left: 0;
+.box-scroll ul {
+  list-style-type: disc; /* ou circle, square */
+  padding-left: 20px;
 }
 
-.favoritos-lista li {
-  margin-bottom: 6px;
-  display: list-item;
-  list-style-position: inside;
+.box-scroll li {
+  font-family: monospace;
+  font-size: 1.2rem;
+  line-height: 1.4em;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
-.favoritos-lista li::before {
-  content: "• ";
-  color: #00ff00;
-  margin-right: 6px;
-}
-
-.favoritos-lista a {
+.box-scroll a {
   color: #33ff33;
   text-decoration: none;
   font-weight: bold;
 }
 
-.favoritos-lista a:hover {
+.box-scroll a:hover {
   color: #00ff00;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-  transform: scale(1.05);
+  text-shadow: 0 0 5px #00ff00;
 }
 
+/* ══════════════════════════════════════ */
+/* [3.3] COMPONENTES - BOTÕES & AÇÕES    */
+/* ══════════════════════════════════════ */
+
 .botao-matrix {
-  display: block;                 
-  margin: 20px auto 4px auto;
-  margin-bottom: -25px;
-  padding: 8px 16px;
+  display: block;
+  width: 80%;
+  margin: 9px auto;
+  padding: 6px 20px;
   border: 1px dotted #0f0;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: #111;
   color: #0f0;
-  text-decoration: none;
-  font-family: monospace;
-  font-size: 1.1em;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 1.0em;
   cursor: pointer;
   transition: 0.3s ease;
-  width: fit-content;
 }
 
 .botao-matrix:hover {
@@ -432,6 +462,3326 @@ h2 {
   box-shadow: 0 0 10px #0f0;
 }
 
-.box-links {
+.botao-neon {
+  padding: 6px 20px;
+  border: 1px dotted #0f0;
+  border-radius: 9px;
+  background-color: #111;
+  color: #0f0;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 1.0em;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.botao-neon:hover {
+  background-color: #0f0;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 10px #0f0;
+}
+
+.botao-caixinhas {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+/* ══════════════════════════════════════ */
+/* [3.4] COMPONENTES - ANIMAÇÕES & HOVER */
+/* ══════════════════════════════════════ */
+
+.box-scroll a {
+  transition: all 0.2s ease-in-out;
+}
+
+.box-scroll a:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 5px #0f0;
+}
+
+.botao-matrix,
+.botao-neon {
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.botao-matrix:hover,
+.botao-neon:hover {
+  transform: scale(1.02);
+}
+
+/* ══════════════════════════════════════ */
+/* [3.5] COMPONENTES - TEMAS & VARIANTES */
+/* ══════════════════════════════════════ */
+
+.tema-claro {
+  --cor-fundo: #fff;
+  --cor-texto: #000;
+  --cor-secundaria: #eee;
+  --borda-padrao: 1px solid #444;
+  --sombra-texto: 0 0 3px #999;
+}
+
+.tema-verde {
+  --cor-fundo: #001100;
+  --cor-texto: #00ff00;
+  --cor-secundaria: #002200;
+  --borda-padrao: 1px dotted #00ff00;
+  --sombra-texto: 0 0 6px #00ff00;
+}
+
+.tema-matrix {
+  --cor-fundo: #000;
+  --cor-texto: #0f0;
+  --cor-secundaria: #111;
+  --borda-padrao: 1px solid #0f0;
+  --sombra-texto: 0 0 6px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [3.6] COMPONENTES - TÍTULOS & DECOR   */
+/* ══════════════════════════════════════ */
+
+.titulo-pagina {
+  text-align: center;
+  font-size: 2.2em;
+  color: var(--cor-texto);
+  text-shadow: var(--sombra-texto);
+  margin: 20px auto;
+}
+
+.subtitulo-pagina {
+  text-align: center;
+  font-size: 1.4em;
+  color: #88ff88;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.titulo-bloco {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--cor-texto);
+  text-shadow: 0 0 4px #0f0;
+}
+
+.decor-barra {
+  width: 80%;
+  height: 2px;
+  margin: 10px auto;
+  background: linear-gradient(to right, #0f0, transparent);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+/* ══════════════════════════════════════ */
+/* [3.7] COMPONENTES - ÍCONES & VISUAIS */
+/* ══════════════════════════════════════ */
+
+.icone {
+  font-size: 1.8em;
+  color: var(--cor-texto);
+  filter: drop-shadow(0 0 2px #0f0);
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.icone-grande {
+  font-size: 2.5em;
+  color: #00ff00;
+  text-shadow: 0 0 4px #0f0;
+}
+
+.icone-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  background-color: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 8px;
+  padding: 10px;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 0 6px #0f0;
+  margin: 0 auto;
+}
+
+.icone-box:hover {
+  background-color: #0f0;
+  color: #000;
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+/* ══════════════════════════════════════ */
+/* [3.8] COMPONENTES - INPUTS & FORM     */
+/* ══════════════════════════════════════ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  background-color: #000;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 6px 10px;
+  font-size: 1em;
+  font-family: monospace;
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #090;
+  opacity: 0.6;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #5f5;
+  box-shadow: 0 0 4px #0f0;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1em;
+  color: var(--cor-texto);
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+/* ══════════════════════════════════════ */
+/* [3.9] COMPONENTES - CHECKBOX / RADIO  */
+/* ══════════════════════════════════════ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #00ff00;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.checkbox-label,
+.radio-label {
+  font-size: 1em;
+  color: var(--cor-texto);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+select {
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 6px 10px;
+  font-family: monospace;
+  font-size: 1em;
+  border-radius: 4px;
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+select:focus {
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [3.9.1] COMPONENTES - LISTA DE EVENTOS  */
+/* ══════════════════════════════════════ */
+
+#eventos-mes {
+  max-height: 200px;     /* ou ajuste para 250~300px se quiser mais espaço */
+  overflow-y: auto;
+  padding-right: 8px;     /* espaço da rolagem */
+  scrollbar-width: thin;  /* Firefox */
+  scrollbar-color: #0f0 transparent;
+}
+
+/* Para WebKit (Chrome, Edge) */
+#eventos-mes::-webkit-scrollbar {
+  width: 6px;
+}
+#eventos-mes::-webkit-scrollbar-thumb {
+  background-color: #0f0;
+  border-radius: 4px;
+}
+
+/* ══════════════════════════════════════ */
+/* [4.0] MÓDULOS - FAVORITOS MATRIX      */
+/* ══════════════════════════════════════ */
+
+.favorito-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  margin-bottom: 6px;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+}
+
+.favorito-item::before {
+  content: "✦";
+  color: #0f0;
+  display: inline-block;
+  width: 1em;
+}
+
+.favorito-item a {
+  color: #33ff33;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.favorito-item a:hover {
+  color: black;
+  background-color: #0f0;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* ══════════════════════════════════════ */
+/* [4.1] MÓDULOS - LEMBRETES MATRIX      */
+/* ══════════════════════════════════════ */
+
+ul.lembretes-matrix {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
+ul.lembretes-matrix li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 1px;
+  line-height: 1.5em;
+  word-break: break-word;
+}
+
+ul.lembretes-matrix li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  color: #0f0;
+  font-weight: bold;
+}
+
+.mod-md-bloco {
+  display: flex;
+  align-items: flex-start;
+  background-color: #000;
+/*  border: 1px solid #00ff66;*/
+/*  border-radius: 8px;*/
+  padding: 8px 12px;
+  margin-bottom: 01px;
+/*  box-shadow: 0 0 6px #00ff66;*/
+  max-width: 100%;
+}
+
+.mod-checkbox {
+  flex-shrink: 0;
+  margin-right: 12px;
+  margin-top: -1px;
+}
+
+.mod-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #00ff66;
+  outline: none;
+}
+
+.mod-descricao {
+  font-family: 'Courier New', monospace;
+  color: #00ff66;
+  word-break: break-word;
+  max-width: calc(100% - 40px);
+}
+
+/* ══════════════════════════════════════ */
+/* [4.2] MÓDULOS - COMPROMISSOS MATRIX   */
+/* ══════════════════════════════════════ */
+
+#compromissos-bloco {
+  background-color: #000;
+  border: 1px solid #0f0;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 0 8px #0f0;
+  border-radius: 8px;
+}
+
+#compromissos-bloco h2 {
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  font-size: 1.4em;
+  margin-bottom: 8px;
+  text-align: center;
+  text-shadow: 0 0 4px #0f0;
+}
+
+.lista-compromissos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
+.lista-compromissos li {
+  margin-bottom: 6px;
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  line-height: 1.4em;
+  overflow-wrap: break-word;
+}
+
+.lista-compromissos li::before {
+  content: "🕓 ";
+  color: #0f0;
+  font-weight: bold;
+  margin-right: 0.4em;
+}
+
+.compromisso_ativo {
+  background-color: lime;
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+}
+
+.compromisso_ativo .carga_db_horario,
+.compromisso_ativo .carga_db_evento {
+  color: black !important;
+  /* 🧠 Garante que filhos fiquem pretos */
+}
+
+#lista-eventos {
+  max-height: 95px;     /* Ajuste conforme a altura desejada */
+  overflow-y: auto;      /* Mostra a barra apenas se necessário */
+  padding-right: 6px;    /* Espaço extra para evitar corte do texto */
+}
+
+/* BLOCO: CARGA DE DADOS */
+.carga_db_bloco {
+  background-color: black;
+  margin: 10px auto;
+  width: fit-content;
+  max-width: 90%;
+}
+
+.carga_db_linha {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px; 
+  padding: 2px 0;
+}
+
+.carga_db_linha.compromisso-agora {
+  background-color: limegreen;
+  color: black;
+  font-weight: bold;
+}
+
+.carga_db_linha span {
+  font-size: 1.2rem;
+}
+
+.carga_db_horario {
+  min-width: 65px;
+  font-weight: bold;
+  color: #00ff00;
+  flex-shrink: 0;
+}
+
+.carga_db_evento {
+  flex: 1;
+  word-break: break-word;
+  white-space: pre-line;
+}
+
+carga_db_horario,
+.carga_db_evento {
+  display: inline-block;
+}
+
+/* ══════════════════════════════════════ */
+/* [4.3] MÓDULOS - ANIVERSARIANTES       */
+/* ══════════════════════════════════════ */
+
+#aniversariantes-bloco {
+  background-color: #000;
+  border: 1px solid #0f0;
+  padding: 04px;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #0f0;
   text-align: center;
 }
+
+#aniversariantes-bloco h2 {
+  font-size: 1.6em;
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0;
+  margin: 0;
+}
+
+#aniversariantes-bloco h3 {
+  font-size: 1.1em;
+  color: #88ff88;
+  margin: -11px 0 9px;
+  text-align: center;  
+  display: block;        /* força comportamento padrão */
+}
+
+#aniversariantes {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #0f0;
+  padding: 1px;
+  background-color: #000; /* #111; */
+  border-radius: 3px;
+  max-width: 100%;
+  width: 95%;
+  margin: 0 auto;
+
+
+  display: block;
+  margin: 0 auto;
+  width: 92%;
+
+}
+
+/* ══════════════════════════════════════ */
+/* [4.4] MÓDULOS - CALENDÁRIO & RELÓGIO  */
+/* ══════════════════════════════════════ */
+
+#relogio-bloco,
+#calendario-bloco {
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 9px 0;
+  box-shadow: 0 0 8px #0f0;
+  text-align: center;
+}
+
+#relogio-bloco h2,
+#calendario-bloco h2 {
+  font-size: 1.4em;
+  color: #0f0;
+  margin-bottom: 8px;
+  text-shadow: 0 0 4px #0f0;
+}
+
+#hora-digital {
+  font-size: 2.4em;
+  color: #00ff00;
+  font-family: monospace;
+  text-shadow: 0 0 6px #0f0;
+  margin-bottom: 6px;
+}
+
+.relogio-digital {
+  text-align: center;
+  font-size: 2.5em;
+  padding: 0px 10px;
+  margin: 0 auto;
+  font-family: monospace;
+  color: #0f0;
+  border-radius: 6px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#analog-clock {
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  box-sizing: content-box;
+}
+
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.calendario-header button {
+  background-color: black;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.calendario-dias,
+.calendario-corpo {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  text-align: center;
+}
+
+.calendario-dias>div,
+.calendario-corpo>div {
+  /*  
+  border: 1px dotted #0f0;
+  */
+  padding: 1px;
+  border: none !important;
+  background: transparent; 
+}
+
+
+.calendario-corpo>div.hoje {
+  /*
+  background-color: #0f0;
+  color: black;
+  font-weight: bold;
+  */
+  background-color: #0f0;
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+/* ══════════════════════════════════════ */
+/* [4.5] MÓDULO - ANIVERSARIANTE NOME    */
+/* ══════════════════════════════════════ */
+
+.quadro-aniversariante {
+  width: 100%;
+  max-width: 600px;
+  margin: 1px auto;
+  font-family: monospace;
+  /*background-color: #111;*/
+  /*border: 2px solid #0f0;*/
+  border-radius: 5px;
+  /*box-shadow: 0 0 6px #0f0, 0 0 4px #0f0 inset;*/
+  overflow: hidden;
+}
+
+.quadro-aniversariante .linha {
+  display: flex;
+  border-top: 1px solid #0f0;
+  border: none;
+  margin-bottom: 0;
+  padding: 0;  
+}
+
+.quadro-aniversariante .linha:first-child {
+  border-top: none;
+}
+
+.emoji-aniversariante,
+.vazio {
+  width: 35px;
+  padding: 6px;
+  font-size: 1.0em;
+  text-align: center;
+  color: #0f0;
+  /*border-right: 1px solid #0f0;*/
+}
+
+.nome-aniversariante {
+  font-weight: bold;
+  padding: 2px 10px;
+  color: lime;
+}
+
+.referencia-aniversariante {
+  font-style: italic;
+  padding: 2px 10px;
+  color: lime; /*#7fff7f;*/
+  margin-top: -6px;
+}
+
+/* ══════════════════════════════════════ */
+/* [4.6] COMPONENTE - ALERTA PADRÃO     */
+/* ══════════════════════════════════════ */
+
+.alerta-padrao {
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin: 14px auto;
+  background-color: #111;
+  color: #00ff00;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 9px 24px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px #0f0 inset, 0 0 8px #0f0;
+  border: 1px solid #0f0;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Uso recomendado: <div class="alerta-padrao">Mensagem</div> */
+
+/* ══════════════════════════════════════ */
+/* [4.7] COMPONENTE - FRASE DE EFEITO    */
+/* ══════════════════════════════════════ */
+
+.frase-efeito {
+  display: block;
+  width: 95%;
+  max-width: 700px;
+  margin: 20px auto;
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 28px;
+  border-left: 4px solid #0f0;
+  border-right: 4px solid #0f0;
+  box-shadow: 0 0 9px #0f0;
+  border-radius: 8px;
+  text-shadow: 0 0 4px #0f0;
+}
+
+/* Uso recomendado:
+<div class="frase-efeito">A realidade é uma ilusão criada pela falta de café.</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [4.8] COMPONENTE - SEPARADOR VISUAL   */
+/* ══════════════════════════════════════ */
+
+.separador-matrix {
+  width: 80%;
+  height: 2px;
+  margin: 24px auto;
+  background: linear-gradient(to right, transparent, #00ff00, transparent);
+  box-shadow: 0 0 6px #0f0;
+  border: none;
+  opacity: 0.5;
+}
+
+/* Uso sugerido: <hr class="separador-matrix"> */
+
+/* ══════════════════════════════════════ */
+/* [4.9] COMPONENTE - MARCADOR DE BLOCO  */
+/* ══════════════════════════════════════ */
+
+.marcador-bloco {
+  display: inline-block;
+  background-color: #111;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1.0em;
+  padding: 4px 9px;
+  border: 1px dashed #0f0;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #0f0;
+  margin-bottom: 8px;
+  text-shadow: 0 0 2px #0f0;
+}
+
+/* Uso sugerido:
+<span class="marcador-bloco">[ FAVORITOS ]</span> */
+
+/* ══════════════════════════════════════ */
+/* [5.0] COMPONENTE - RODAPÉ FIXO        */
+/* ══════════════════════════════════════ */
+
+.rodape-fixo {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 0.95em;
+  text-align: center;
+  padding: 6px 0;
+  border-top: 1px solid #0f0;
+  box-shadow: 0 -1px 6px #0f0;
+  z-index: 999;
+}
+
+/* Exemplo de uso:
+<footer class="rodape-fixo">SHAOS MATRIX CONTROL CENTER © 2025</footer> */
+
+/* ══════════════════════════════════════ */
+/* [5.1] COMPONENTE - CAIXA DE CARGA     */
+/* ══════════════════════════════════════ */
+
+.caixa-carregando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #111;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-shadow: 0 0 4px #0f0;
+  animation: pisca-carregando 1s infinite;
+  border: 1px dashed #0f0;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #0f0;
+}
+
+@keyframes pisca-carregando {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Exemplo:
+<div class="caixa-carregando">Carregando dados...</div> */
+
+/* ══════════════════════════════════════ */
+/* [5.3] COMPONENTE - BLOCO DE DICAS     */
+/* ══════════════════════════════════════ */
+
+.bloco-dica {
+  background-color: #111;
+  border-left: 4px solid #0f0;
+  padding: 9px 20px;
+  margin: 18px auto;
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 1em;
+  line-height: 1.6em;
+  width: 90%;
+  max-width: 650px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #0f0 inset;
+}
+
+.bloco-dica strong {
+  color: #0f0;
+  text-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<div class="bloco-dica">
+  <strong>Dica:</strong> Você pode clicar com o botão direito para mais opções.
+</div> */
+
+/* ══════════════════════════════════════ */
+/* [5.4] COMPONENTE - TEXTO DE DESTAQUE   */
+/* ══════════════════════════════════════ */
+
+.texto-destaque {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #000;
+  color: #0f0;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1em;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #0f0;
+  text-shadow: 0 0 2px #0f0;
+  margin: 4px;
+}
+
+/* Exemplo:
+<span class="texto-destaque">Concluído ✓</span> */
+
+/* ══════════════════════════════════════ */
+/* [5.5] COMPONENTE - MINI BLOCO INFO     */
+/* ══════════════════════════════════════ */
+
+.mini-info {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #111;
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 0.9em;
+  border-radius: 4px;
+  border: 1px dotted #0f0;
+  margin: 2px;
+  text-shadow: 0 0 2px #0f0;
+  box-shadow: 0 0 3px #0f0;
+}
+
+/* Exemplo:
+<span class="mini-info">ID: 023</span> */
+
+/* ══════════════════════════════════════ */
+/* [5.6] COMPONENTE - CAIXA DE ERRO       */
+/* ══════════════════════════════════════ */
+
+.caixa-erro {
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #220000;
+  color: #ff4444;
+  font-family: monospace;
+  font-size: 1.1em;
+  padding: 14px 20px;
+  border-left: 5px solid #ff0000;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #f00 inset;
+  text-shadow: 0 0 3px #f00;
+}
+
+/* Exemplo:
+<div class="caixa-erro">Erro ao carregar os dados do servidor.</div> */
+
+/* ══════════════════════════════════════ */
+/* [5.7] COMPONENTE - CAIXA DE SUCESSO    */
+/* ══════════════════════════════════════ */
+
+.caixa-sucesso {
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #002200;
+  color: #33ff33;
+  font-family: monospace;
+  font-size: 1.1em;
+  padding: 14px 20px;
+  border-left: 5px solid #00ff00;
+  border-radius: 6px; 
+  box-shadow: 0 0 6px #0f0 inset;
+  text-shadow: 0 0 3px #0f0;
+}
+
+/* Exemplo:
+<div class="caixa-sucesso">Dados salvos com sucesso!</div> */
+
+/* ══════════════════════════════════════ */
+/* [5.8] COMPONENTE - MODO DESATIVADO     */
+/* ══════════════════════════════════════ */
+
+.modo-desativado {
+  opacity: 0.4;
+  pointer-events: none;
+  filter: grayscale(80%);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Exemplo de uso:
+<div class="modo-desativado">Módulo temporariamente inativo</div> */
+
+/* ══════════════════════════════════════ */
+/* [5.9] COMPONENTE - ALERTA IMPORTANTE   */
+/* ══════════════════════════════════════ */
+
+.alerta-importante {
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #330000;
+  color: #ff4444;
+  font-family: monospace;
+  font-size: 1.1em;
+  padding: 16px 22px;
+  border: 2px dashed #f00;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #f00 inset;
+  text-shadow: 0 0 4px #f00;
+  text-align: center;
+}
+
+/* Exemplo:
+<div class="alerta-importante">ATENÇÃO: Esta ação não pode ser desfeita.</div> */
+
+/* ══════════════════════════════════════ */
+/* [6.0] COMPONENTE - MODO ESCONDIDO      */
+/* ══════════════════════════════════════ */
+
+.modo-escondido {
+  display: none !important;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* Uso típico: esconder campos, módulos ou avisos */
+/* Exemplo:
+<div class="modo-escondido">Texto oculto</div> */
+
+/* ══════════════════════════════════════ */
+/* [6.1] COMPONENTE - FUNDO TRANSLÚCIDO   */
+/* ══════════════════════════════════════ */
+
+.fundo-translucido {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 0 6px #0f0;
+  border: 1px solid rgba(0, 255, 0, 0.4);
+}
+
+/* Exemplo:
+<div class="fundo-translucido">Conteúdo com fundo embaçado</div> */
+
+/* ══════════════════════════════════════ */
+/* [6.2] COMPONENTE - QUADRO COM TÍTULO   */
+/* ══════════════════════════════════════ */
+
+.quadro-com-titulo {
+  border: 1px solid #0f0;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #111;
+  box-shadow: 0 0 6px #0f0;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 700px;
+}
+
+.quadro-com-titulo h3 {
+  margin-top: 0;
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  font-size: 1.4em;
+  text-shadow: 0 0 4px #0f0;
+  border-bottom: 1px dotted #0f0;
+  padding-bottom: 6px;
+  margin-bottom: 9px;
+}
+
+/* Exemplo:
+<div class="quadro-com-titulo">
+  <h3>Título do Quadro</h3>
+  <p>Conteúdo do quadro...</p>
+</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [6.3] COMPONENTE - CAIXA DE AVISO FIXA */
+/* ══════════════════════════════════════ */
+
+.aviso-fixo {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #111;
+  color: #ff0;
+  font-family: monospace;
+  font-size: 1em;
+  padding: 10px 16px;
+  border: 1px dashed #ff0;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #ff0;
+  z-index: 9999;
+}
+
+/* Exemplo:
+<div class="aviso-fixo">Modo manutenção ativado</div> */
+
+/* ══════════════════════════════════════ */
+/* [6.4] COMPONENTE - ETIQUETA COM ÍCONE  */
+/* ══════════════════════════════════════ */
+
+.etiqueta-icone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: #000;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 0.95em;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #0f0;
+  text-shadow: 0 0 2px #0f0;
+  margin: 3px;
+}
+
+.etiqueta-icone img {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 0 2px #0f0);
+}
+
+/* Exemplo:
+<span class="etiqueta-icone">
+  <img src="img/estrela.png" alt="">Favorito
+</span> */
+
+/* ══════════════════════════════════════ */
+/* [6.5] COMPONENTE - AVISO DE SISTEMA    */
+/* ══════════════════════════════════════ */
+
+.aviso-sistema {
+  background-color: #111;
+  border: 2px solid #f80;
+  border-radius: 8px;
+  color: #f80;
+  font-family: monospace;
+  font-size: 1.1em;
+  padding: 14px 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 650px;
+  box-shadow: 0 0 5px #f80;
+  text-shadow: 0 0 3px #f80;
+  text-align: center;
+}
+
+/* Exemplo:
+<div class="aviso-sistema">Sistema reiniciando em 30 segundos...</div> */
+
+/* ══════════════════════════════════════ */
+/* [6.6] COMPONENTE - MÓDULO COM BORDA    */
+/* ══════════════════════════════════════ */
+
+.modulo-borda {
+  border: 1px dashed #0f0;
+  background-color: #000;
+  padding: 16px;
+  margin: 20px auto;
+  width: 95%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px #0f0;
+  font-family: monospace;
+  color: #0f0;
+  text-shadow: 0 0 2px #0f0;
+}
+
+/* Exemplo:
+<div class="modulo-borda">Conteúdo destacado com borda personalizada.</div> */
+
+/* ══════════════════════════════════════ */
+/* [6.7] COMPONENTE - FAIXA DE PROGRESSO  */
+/* ══════════════════════════════════════ */
+
+.faixa-progresso {
+  width: 90%;
+  max-width: 600px;
+  height: 20px;
+  background-color: #222;
+  border: 1px solid #0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 6px #0f0 inset;
+  margin: 16px auto;
+}
+
+.faixa-progresso span {
+  display: block;
+  height: 100%;
+  background-color: #0f0;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Exemplo:
+<div class="faixa-progresso">
+  <span style="width: 70%;"></span>
+</div> */
+
+/* ══════════════════════════════════════ */
+/* [6.8] COMPONENTE - LINHA DIVISÓRIA     */
+/* ══════════════════════════════════════ */
+
+.linha-divisoria {
+  border: none;
+  border-top: 2px dotted #0f0;
+  margin: 24px auto;
+  width: 90%;
+  max-width: 700px;
+  opacity: 0.6;
+}
+
+/* Exemplo:
+<hr class="linha-divisoria"> */
+
+
+/* ══════════════════════════════════════ */
+/* [6.9] COMPONENTE - SINALIZADOR MATRIX  */
+/* ══════════════════════════════════════ */
+
+.sinalizador-matrix {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 1.1em;
+  color: #00ff00;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin: 2px;
+  text-shadow: 0 0 4px #0f0;
+  box-shadow: 0 0 5px #0f0;
+}
+
+/* Exemplo:
+<span class="sinalizador-matrix">▸</span> */
+
+/* ══════════════════════════════════════ */
+/* [7.0] COMPONENTE - TAG INFORMATIVA     */
+/* ══════════════════════════════════════ */
+
+.tag-informativa {
+  display: inline-block;
+  padding: 4px 10px;
+  font-family: monospace;
+  font-size: 0.95em;
+  background-color: #003300;
+  color: #00ff00;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  margin: 3px;
+  box-shadow: 0 0 3px #0f0;
+  text-shadow: 0 0 2px #0f0;
+}
+
+/* Exemplo:
+<span class="tag-informativa">Ativo</span> */
+
+/* ══════════════════════════════════════ */
+/* [7.1] COMPONENTE - CAIXA DE CONTAGEM   */
+/* ══════════════════════════════════════ */
+
+.caixa-contagem {
+  display: inline-block;
+  padding: 6px 9px;
+  font-family: monospace;
+  font-size: 1.1em;
+  color: #0f0;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 0 4px #0f0;
+  min-width: 40px;
+  margin: 4px;
+}
+
+/* Exemplo:
+<span class="caixa-contagem">007</span> */
+
+/* ══════════════════════════════════════ */
+/* [7.2] COMPONENTE - DICA INTERATIVA     */
+/* ══════════════════════════════════════ */
+
+.dica-interativa {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dashed #0f0;
+  color: #0f0;
+}
+
+.dica-interativa:hover::after {
+  content: attr(data-dica);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #111;
+  color: #0f0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 0.9em;
+  font-family: monospace;
+  border: 1px solid #0f0;
+  box-shadow: 0 0 5px #0f0;
+  z-index: 9999;
+  opacity: 1;
+}
+
+/* Exemplo:
+<span class="dica-interativa" data-dica="Este campo é obrigatório.">?</span> */
+
+/* ══════════════════════════════════════ */
+/* [7.3] COMPONENTE - BLOCO ESCONDÍVEL    */
+/* ══════════════════════════════════════ */
+
+.bloco-toggle {
+  display: none;
+  background-color: #111;
+  color: #0f0;
+  padding: 9px 16px;
+  border: 1px solid #0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 6px #0f0;
+  font-family: monospace;
+  margin: 10px auto;
+  width: 90%;
+  max-width: 700px;
+}
+
+.bloco-toggle.mostrar {
+  display: block;
+}
+
+/* Para ativar dinamicamente:
+  document.querySelector('.bloco-toggle').classList.toggle('mostrar'); */
+
+/* Exemplo HTML:
+<div class="bloco-toggle">Conteúdo revelado ao clicar</div> */
+
+/* ══════════════════════════════════════ */
+/* [7.4] COMPONENTE - RÓTULO FIXO         */
+/* ══════════════════════════════════════ */
+
+.rotulo-fixo {
+  position: fixed;
+  bottom: 9px;
+  left: 9px;
+  background-color: #000;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 0.9em;
+  padding: 6px 9px;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #0f0;
+  z-index: 1000;
+  opacity: 0.8;
+}
+
+/* Exemplo:
+<div class="rotulo-fixo">v1.0.3</div> */
+
+/* ══════════════════════════════════════ */
+/* [7.5] COMPONENTE - BLOCO DESCRITIVO    */
+/* ══════════════════════════════════════ */
+
+.bloco-descritivo {
+  background-color: #111;
+  border-left: 4px solid #0f0;
+  padding: 9px 16px;
+  margin: 16px auto;
+  width: 90%;
+  max-width: 750px;
+  font-family: monospace;
+  font-size: 1em;
+  color: #0f0;
+  box-shadow: 0 0 4px #0f0;
+  border-radius: 6px;
+  line-height: 1.5em;
+}
+
+/* Exemplo:
+<div class="bloco-descritivo">
+  Este é um bloco utilizado para explicações ou descrições técnicas importantes.
+</div> */
+
+/* ══════════════════════════════════════ */
+/* [7.6] COMPONENTE - QUADRO DE ERRO      */
+/* ══════════════════════════════════════ */
+
+.quadro-erro {
+  background-color: #1a0000;
+  border: 2px solid #f00;
+  color: #f00;
+  font-family: monospace;
+  font-size: 1em;
+  padding: 14px 18px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 750px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px #f00;
+  text-shadow: 0 0 2px #f00;
+}
+
+/* Exemplo:
+<div class="quadro-erro">Erro ao carregar os dados do servidor.</div> */
+
+/* ══════════════════════════════════════ */
+/* [7.7] COMPONENTE - DESTAQUE IMPORTANTE */
+/* ══════════════════════════════════════ */
+
+.destaque-importante {
+  background-color: #003300;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 1em;
+  padding: 9px 16px;
+  margin: 18px auto;
+  width: 90%;
+  max-width: 750px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #0f0;
+  text-shadow: 0 0 2px #0f0;
+}
+
+/* Exemplo:
+<div class="destaque-importante">⚠ Atenção: Alterações salvas com sucesso.</div> */
+
+/* ══════════════════════════════════════ */
+/* [7.8] COMPONENTE - LINHA TEMPORIZADA   */
+/* ══════════════════════════════════════ */
+
+.linha-temporizada {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  height: 4px;
+  background-color: #111;
+  border: 1px solid #0f0;
+  margin: 16px auto;
+  overflow: hidden;
+}
+
+.linha-temporizada::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0f0;
+  animation: esgotar-barra 5s linear forwards;
+}
+
+@keyframes esgotar-barra {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Exemplo:
+<div class="linha-temporizada"></div> */
+
+/* ══════════════════════════════════════ */
+/* [7.9] COMPONENTE - CÓDIGO DESTACADO    */
+/* ══════════════════════════════════════ */
+
+.codigo-destacado {
+  background-color: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95em;
+  padding: 8px 9px;
+  margin: 10px auto;
+  width: 90%;
+  max-width: 750px;
+  overflow-x: auto;
+  box-shadow: 0 0 4px #0f0;
+  text-shadow: 0 0 2px #0f0;
+  white-space: pre-wrap;
+}
+
+/* Exemplo:
+<pre class="codigo-destacado">echo "Hello World!";</pre> */
+
+
+/* ══════════════════════════════════════ */
+/* [8.0] COMPONENTE - BOTÃO MINI ICONE    */
+/* ══════════════════════════════════════ */
+
+.botao-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 0.9em;
+  font-family: monospace;
+  cursor: pointer;
+  box-shadow: 0 0 4px #0f0;
+  transition: all 0.2s ease-in-out;
+  margin: 2px;
+}
+
+.botao-mini:hover {
+  background-color: #0f0;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 6px #0f0;
+}
+
+/* Exemplo:
+<button class="botao-mini">✓</button> */
+
+/* ══════════════════════════════════════ */
+/* [8.1] COMPONENTE - TOOLTIP CUSTOMIZADO */
+/* ══════════════════════════════════════ */
+
+.tooltip-custom {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.tooltip-custom .tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: #000;
+  color: #0f0;
+  text-align: center;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-family: monospace;
+  font-size: 0.9em;
+  white-space: nowrap;
+  box-shadow: 0 0 5px #0f0;
+}
+
+.tooltip-custom:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Exemplo:
+<span class="tooltip-custom">?
+  <span class="tooltip-text">Texto da dica</span>
+</span> */
+
+/* ══════════════════════════════════════ */
+/* [8.2] COMPONENTE - RÓTULO LATERAL      */
+/* ══════════════════════════════════════ */
+
+.rotulo-lateral {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: #111;
+  color: #0f0;
+  padding: 6px 8px;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<div class="rotulo-lateral">MENU</div> */
+
+/* ══════════════════════════════════════ */
+/* [8.3] COMPONENTE - CAIXA DE ALERTA     */
+/* ══════════════════════════════════════ */
+
+.caixa-alerta {
+  background-color: #332200;
+  color: #ffcc00;
+  font-family: monospace;
+  padding: 14px 20px;
+  border: 2px solid #ffcc00;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 750px;
+  margin: 20px auto;
+  box-shadow: 0 0 6px #ffcc00;
+  text-shadow: 0 0 2px #ffcc00;
+}
+
+/* Exemplo:
+<div class="caixa-alerta">⚠ Atenção: Campos obrigatórios não preenchidos.</div> */
+
+/* ══════════════════════════════════════ */
+/* [8.4] COMPONENTE - ETIQUETA FLUTUANTE */
+/* ══════════════════════════════════════ */
+
+.etiqueta-flutuante {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #0f0;
+  color: #000;
+  font-family: monospace;
+  font-size: 0.75em;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  box-shadow: 0 0 4px #0f0;
+  z-index: 10;
+}
+
+/* Exemplo:
+<div style="position: relative;">
+  <span class="etiqueta-flutuante">NOVO</span>
+  ...conteúdo...
+</div> */
+
+/* ══════════════════════════════════════ */
+/* [8.5] COMPONENTE - MARCADOR DE STATUS  */
+/* ══════════════════════════════════════ */
+
+.marcador-status {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #0f0;
+  margin-right: 6px;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<span class="marcador-status"></span>Online */
+
+
+/* ══════════════════════════════════════ */
+/* [8.6] COMPONENTE - CAMPO BLOQUEADO     */
+/* ══════════════════════════════════════ */
+
+.campo-bloqueado {
+  background-color: #222;
+  color: #777;
+  border: 1px dashed #555;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 0.95em;
+  pointer-events: none;
+  opacity: 0.6;
+  width: 100%;
+}
+
+/* Exemplo:
+<input class="campo-bloqueado" value="Somente leitura" readonly /> */
+
+
+/* ══════════════════════════════════════ */
+/* [8.7] COMPONENTE - CARD SIMPLES        */
+/* ══════════════════════════════════════ */
+
+.card-simples {
+  background-color: #111;
+  border: 1px solid #0f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px auto;
+  width: 90%;
+  max-width: 800px;
+  color: #0f0;
+  font-family: monospace;
+  box-shadow: 0 0 6px #0f0;
+}
+
+/* Exemplo:
+<div class="card-simples">Conteúdo interno do card</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [8.8] COMPONENTE - SINAL DE ALERTA     */
+/* ══════════════════════════════════════ */
+
+.sinal-alerta {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #330000;
+  color: #f00;
+  font-size: 0.85em;
+  border: 1px solid #f00;
+  border-radius: 4px;
+  font-family: monospace;
+  box-shadow: 0 0 4px #f00;
+}
+
+/* Exemplo:
+<span class="sinal-alerta">ERRO</span> */
+
+
+/* ══════════════════════════════════════ */
+/* [8.9] COMPONENTE - ETIQUETA DE CAMPO   */
+/* ══════════════════════════════════════ */
+
+.etiqueta-campo {
+  display: block;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: #0f0;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Exemplo:
+<label class="etiqueta-campo" for="nome">Nome completo:</label> */
+
+
+/* ══════════════════════════════════════ */
+/* [9.0] COMPONENTE - IMAGEM ILUSTRATIVA  */
+/* ══════════════════════════════════════ */
+
+.imagem-ilustrativa {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  margin: 10px auto;
+  box-shadow: 0 0 6px #0f0;
+}
+
+/* Exemplo:
+<img src="caminho.jpg" alt="Ilustração" class="imagem-ilustrativa"> */
+
+/* ══════════════════════════════════════ */
+/* [9.1] COMPONENTE - BLOCO DE CITAÇÃO    */
+/* ══════════════════════════════════════ */
+
+.bloco-citacao {
+  font-style: italic;
+  font-family: monospace;
+  border-left: 4px solid #0f0;
+  padding: 10px 20px;
+  margin: 20px auto;
+  background-color: #111;
+  color: #0f0;
+  width: 90%;
+  max-width: 750px;
+  box-shadow: 0 0 5px #0f0;
+}
+
+/* Exemplo:
+<blockquote class="bloco-citacao">“A vida é código.”</blockquote> */
+
+
+/* ══════════════════════════════════════ */
+/* [9.2] COMPONENTE - AVISO EM CAIXA      */
+/* ══════════════════════════════════════ */
+
+.aviso-caixa {
+  background-color: #111;
+  border: 2px dashed #0f0;
+  padding: 9px;
+  font-family: monospace;
+  font-size: 0.95em;
+  margin: 20px auto;
+  color: #0f0;
+  width: 90%;
+  max-width: 750px;
+  text-align: center;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<div class="aviso-caixa">⚠ Backup realizado com sucesso.</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [9.3] COMPONENTE - DIVISOR HORIZONTAL  */
+/* ══════════════════════════════════════ */
+
+.divisor-horizontal {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, #0f0, #000, #0f0);
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+}
+
+/* Exemplo:
+<hr class="divisor-horizontal"> */
+
+
+/* ══════════════════════════════════════ */
+/* [9.4] COMPONENTE - MINI INDICADOR      */
+/* ══════════════════════════════════════ */
+
+.indicador-mini {
+  display: inline-block;
+  font-size: 0.75em;
+  font-family: monospace;
+  padding: 2px 6px;
+  background-color: #0f0;
+  color: #000;
+  border-radius: 4px;
+  margin: 2px;
+  box-shadow: 0 0 3px #0f0;
+}
+
+/* Exemplo:
+<span class="indicador-mini">v1.0</span> */
+
+
+/* ══════════════════════════════════════ */
+/* [9.5] COMPONENTE - MARCA D'ÁGUA        */
+/* ══════════════════════════════════════ */
+
+.marca-agua {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.75em;
+  color: #0f0;
+  opacity: 0.2;
+  pointer-events: none;
+  font-family: monospace;
+}
+
+/* Exemplo:
+<div class="marca-agua">FoxTrot Matrix CSS</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [10.0] COMPONENTE - CAIXA EM DESTAQUE  */
+/* ══════════════════════════════════════ */
+
+.caixa-destaque {
+  background-color: #001100;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 16px 20px;
+  margin: 20px auto;
+  font-family: monospace;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #0f0;
+  text-align: center;
+}
+
+/* Exemplo:
+<div class="caixa-destaque">🚀 Módulo carregado com sucesso!</div> */
+
+/* ══════════════════════════════════════ */
+/* [11.0] COMPONENTE - LINHA PONTILHADA   */
+/* ══════════════════════════════════════ */
+
+.linha-pontilhada {
+  border-top: 1px dotted #0f0;
+  margin: 9px 0;
+}
+
+/* Exemplo:
+<hr class="linha-pontilhada"> */
+
+
+/* ══════════════════════════════════════ */
+/* [11.1] COMPONENTE - TÍTULO PERSONALIZADO */
+/* ══════════════════════════════════════ */
+
+.titulo-personalizado {
+  font-family: monospace;
+  font-size: 1.5em;
+  color: #0f0;
+  text-shadow: 0 0 6px #0f0;
+  border-bottom: 2px solid #0f0;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+/* Exemplo:
+<h2 class="titulo-personalizado">Configurações Avançadas</h2> */
+
+
+/* ══════════════════════════════════════ */
+/* [11.2] COMPONENTE - TAG DE TEXTO       */
+/* ══════════════════════════════════════ */
+
+.tag-texto {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.8em;
+  background-color: #0f0;
+  color: #000;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin: 2px;
+  box-shadow: 0 0 3px #0f0;
+}
+
+/* Exemplo:
+<span class="tag-texto">#Terminal</span> */
+
+
+/* ══════════════════════════════════════ */
+/* [11.3] COMPONENTE - CAMPO DE CÓDIGO    */
+/* ══════════════════════════════════════ */
+
+.campo-codigo {
+  background-color: #111;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 0.95em;
+  padding: 10px;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<pre class="campo-codigo">echo "Olá, mundo!"</pre> */
+
+
+/* ══════════════════════════════════════ */
+/* [11.4] COMPONENTE - CHECKBOX MATRIX    */
+/* ══════════════════════════════════════ */
+
+.checkbox-matrix {
+  accent-color: #00ff00;
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+/* Exemplo:
+<input type="checkbox" class="checkbox-matrix"> Ativar módulo */
+
+
+/* ══════════════════════════════════════ */
+/* [11.5] COMPONENTE - CAMPO DE BUSCA     */
+/* ══════════════════════════════════════ */
+
+.campo-busca {
+  background-color: #000;
+  border: 1px solid #0f0;
+  color: #0f0;
+  font-family: monospace;
+  padding: 8px 9px;
+  border-radius: 6px;
+  width: 100%;
+  box-shadow: 0 0 5px #0f0;
+}
+
+.campo-busca::placeholder {
+  color: #0f0;
+  opacity: 0.6;
+}
+
+/* Exemplo:
+<input type="text" class="campo-busca" placeholder="Buscar..."> */
+
+
+/* ══════════════════════════════════════ */
+/* [11.6] COMPONENTE - BLOCO DE RESULTADO */
+/* ══════════════════════════════════════ */
+
+.resultado-bloco {
+  background-color: #111;
+  color: #0f0;
+  font-family: monospace;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<div class="resultado-bloco">Resultado da operação...</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [11.7] COMPONENTE - ETAPA DO PROCESSO  */
+/* ══════════════════════════════════════ */
+
+.etapa-processo {
+  display: inline-block;
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: 0 4px;
+  font-family: monospace;
+  font-size: 0.8em;
+  box-shadow: 0 0 3px #0f0;
+}
+
+/* Exemplo:
+<span class="etapa-processo">2 de 5</span> */
+
+
+/* ══════════════════════════════════════ */
+/* [11.8] COMPONENTE - SOMBRA INTERNA     */
+/* ══════════════════════════════════════ */
+
+.sombra-interna {
+  box-shadow: inset 0 0 6px #0f0;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #111;
+  color: #0f0;
+  font-family: monospace;
+}
+
+/* Exemplo:
+<div class="sombra-interna">Área com sombra interna</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [11.9] COMPONENTE - NOTIFICAÇÃO FIXA   */
+/* ══════════════════════════════════════ */
+
+.notificacao-fixa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #111;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 9px;
+  font-family: monospace;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #0f0;
+  z-index: 999;
+}
+
+/* Exemplo:
+<div class="notificacao-fixa">🔔 Você tem 3 novas tarefas.</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.0] COMPONENTE - LINHA DE PROGRESSO */
+/* ══════════════════════════════════════ */
+
+.linha-progresso {
+  background-color: #222;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 16px;
+  width: 100%;
+  box-shadow: 0 0 4px #0f0;
+}
+
+.linha-progresso-barra {
+  height: 100%;
+  background-color: #0f0;
+  width: 0%; /* Atualize dinamicamente */
+  transition: width 0.5s ease-in-out;
+}
+
+/* Exemplo:
+<div class="linha-progresso">
+  <div class="linha-progresso-barra" style="width: 60%;"></div>
+</div> */
+
+/* ══════════════════════════════════════ */
+/* [12.1] COMPONENTE - CAMPO COM ÍCONE    */
+/* ══════════════════════════════════════ */
+
+.campo-icone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #111;
+  border: 1px solid #0f0;
+  padding: 6px 9px;
+  border-radius: 6px;
+  color: #0f0;
+  font-family: monospace;
+}
+
+.campo-icone i {
+  color: #0f0;
+}
+
+/* Exemplo:
+<div class="campo-icone"><i class="fa fa-search"></i> Buscar</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.2] COMPONENTE - TEXTO PEQUENO      */
+/* ══════════════════════════════════════ */
+
+.texto-pequeno {
+  font-size: 0.75em;
+  opacity: 0.7;
+  font-family: monospace;
+  color: #0f0;
+}
+
+/* Exemplo:
+<span class="texto-pequeno">*Campos obrigatórios</span> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.3] COMPONENTE - GRUPO DE BOTOES    */
+/* ══════════════════════════════════════ */
+
+.grupo-botoes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Exemplo:
+<div class="grupo-botoes">
+  <button class="botao-matrix">Salvar</button>
+  <button class="botao-matrix">Cancelar</button>
+</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.4] COMPONENTE - PAINEL LATERAL     */
+/* ══════════════════════════════════════ */
+
+.painel-lateral {
+  width: 220px;
+  background-color: #000;
+  border-right: 1px solid #0f0;
+  padding: 10px;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  font-family: monospace;
+  color: #0f0;
+  z-index: 10;
+}
+
+/* Exemplo:
+<nav class="painel-lateral"> ... </nav> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.5] COMPONENTE - CAIXA EXPANDIDA    */
+/* ══════════════════════════════════════ */
+
+.caixa-expandida {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 9px;
+  background-color: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  font-family: monospace;
+  box-shadow: 0 0 5px #0f0;
+}
+
+/* Exemplo:
+<div class="caixa-expandida">Conteúdo longo...</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.6] COMPONENTE - SEÇÃO HIGHLIGHT    */
+/* ══════════════════════════════════════ */
+
+.secao-destaque {
+  background-color: #001100;
+  border-left: 5px solid #0f0;
+  padding: 10px 16px;
+  margin: 20px auto;
+  font-family: monospace;
+  color: #0f0;
+  width: 90%;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<section class="secao-destaque">Importante!</section> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.7] COMPONENTE - BARRA FLUTUANTE    */
+/* ══════════════════════════════════════ */
+
+.barra-flutuante {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  border-top: 1px solid #0f0;
+  padding: 8px 16px;
+  text-align: center;
+  font-family: monospace;
+  color: #0f0;
+  box-shadow: 0 -2px 6px #0f0;
+  z-index: 999;
+}
+
+/* Exemplo:
+<div class="barra-flutuante">Status do sistema: OK</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.8] COMPONENTE - OPÇÃO HABILITADA   */
+/* ══════════════════════════════════════ */
+
+.opcao-verde {
+  background-color: #002200;
+  color: #00ff00;
+  font-family: monospace;
+  padding: 4px 8px;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 4px;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<span class="opcao-verde">Ativado</span> */
+
+
+/* ══════════════════════════════════════ */
+/* [12.9] COMPONENTE - GRADE SIMPLES      */
+/* ══════════════════════════════════════ */
+
+.grade-simples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+@media (max-width: 600px) {
+  .grade-simples {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Exemplo:
+<div class="grade-simples"> ... </div> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.0] COMPONENTE - AVISO FLUTUANTE    */
+/* ══════════════════════════════════════ */
+
+.aviso-flutuante {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #222;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-family: monospace;
+  box-shadow: 0 0 6px #0f0;
+  z-index: 9999;
+}
+
+/* Exemplo:
+<div class="aviso-flutuante">Nova versão disponível</div> */
+
+/* ══════════════════════════════════════ */
+/* [13.1] COMPONENTE - TÍTULO FIXO       */
+/* ══════════════════════════════════════ */
+
+.titulo-fixo {
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  color: #0f0;
+  padding: 6px 9px;
+  font-family: monospace;
+  font-weight: bold;
+  z-index: 100;
+  border-bottom: 1px solid #0f0;
+}
+
+/* Exemplo:
+<h3 class="titulo-fixo">Sessão Atual</h3> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.2] COMPONENTE - AVATAR CIRCULAR    */
+/* ══════════════════════════════════════ */
+
+.avatar-circular {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #0f0;
+  object-fit: cover;
+  box-shadow: 0 0 6px #0f0;
+}
+
+/* Exemplo:
+<img src="avatar.jpg" class="avatar-circular"> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.3] COMPONENTE - ETIQUETA SUPERIOR */
+/* ══════════════════════════════════════ */
+
+.etiqueta-topo {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #0f0;
+  color: #000;
+  font-family: monospace;
+  font-size: 0.7em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* Exemplo:
+<div class="etiqueta-topo">ALFA</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.4] COMPONENTE - ABA SIMPLES        */
+/* ══════════════════════════════════════ */
+
+.aba-simples {
+  padding: 6px 9px;
+  border: 1px solid #0f0;
+  background-color: #000;
+  color: #0f0;
+  border-radius: 4px 4px 0 0;
+  font-family: monospace;
+  margin-right: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 4px #0f0;
+}
+
+.aba-simples.ativa {
+  background-color: #0f0;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Exemplo:
+<div class="aba-simples ativa">Config</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.5] COMPONENTE - ABA CONTEÚDO       */
+/* ══════════════════════════════════════ */
+
+.aba-conteudo {
+  padding: 16px;
+  border: 1px solid #0f0;
+  border-top: none;
+  background-color: #111;
+  color: #0f0;
+  font-family: monospace;
+  box-shadow: 0 0 4px #0f0;
+  border-radius: 0 0 6px 6px;
+}
+
+/* Exemplo:
+<div class="aba-conteudo">Conteúdo da aba...</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.6] COMPONENTE - CAMPO DESATIVADO   */
+/* ══════════════════════════════════════ */
+
+.desativado {
+  opacity: 0.4;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+
+/* Exemplo:
+<button class="botao-matrix desativado">Indisponível</button> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.7] COMPONENTE - BARRA DE PROGRESSO */
+/* ══════════════════════════════════════ */
+
+.barra-progresso {
+  width: 100%;
+  height: 16px;
+  background-color: #111;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 4px #0f0;
+}
+
+.barra-preenchida {
+  height: 100%;
+  background-color: #0f0;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+/* Exemplo:
+<div class="barra-progresso">
+  <div class="barra-preenchida" style="width: 40%;"></div>
+</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.8] COMPONENTE - SEÇÃO OCULTA       */
+/* ══════════════════════════════════════ */
+
+.secao-oculta {
+  display: none;
+}
+
+/* Exemplo:
+<div class="secao-oculta">Escondido por padrão</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [13.9] COMPONENTE - MODO ESCURO        */
+/* ══════════════════════════════════════ */
+
+.modo-escuro {
+  background-color: #000;
+  color: #0f0;
+  font-family: monospace;
+}
+
+/* Exemplo:
+<div class="modo-escuro">Área escura</div> */
+
+/* ════════════════════════════════════════════════ */
+/* [13.9.1] DATAS / EVENTOS                            */
+/* ════════════════════════════════════════════════ */
+
+.eventos-lista {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.eventos-lista li {
+  color: #00ff00;
+  font-family: "VT323", monospace;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  cursor: help;
+}
+
+/* ══════════════════════════════════════ */
+/* [14.0] COMPONENTE - ALERTA CRÍTICO     */
+/* ══════════════════════════════════════ */
+
+.alerta-critico {
+  background-color: #330000;
+  color: #ff3333;
+  border: 2px solid red;
+  padding: 9px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-weight: bold;
+  box-shadow: 0 0 8px red;
+}
+
+/* Exemplo:
+<div class="alerta-critico">PERIGO: Sistema instável!</div> */
+
+/* ══════════════════════════════════════ */
+/* [14.1] COMPONENTE - TABELA ESTILIZADA */
+/* ══════════════════════════════════════ */
+
+.tabela-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: monospace;
+  color: #0f0;
+  background-color: #000;
+  box-shadow: 0 0 8px #0f0;
+}
+
+.tabela-matrix th,
+.tabela-matrix td {
+  border: 1px solid #0f0;
+  padding: 6px 9px;
+  text-align: left;
+}
+
+.tabela-matrix th {
+  background-color: #111;
+  font-weight: bold;
+  text-shadow: 0 0 3px #0f0;
+}
+
+.tabela-matrix tr:hover {
+  background-color: #002200;
+}
+
+
+/* ══════════════════════════════════════ */
+/* [14.2] COMPONENTE - BALÃO DE AJUDA     */
+/* ══════════════════════════════════════ */
+
+.balao-ajuda {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.balao-ajuda .texto-ajuda {
+  visibility: hidden;
+  width: 160px;
+  background-color: #000;
+  color: #0f0;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+  box-shadow: 0 0 6px #0f0;
+  font-size: 0.9em;
+}
+
+.balao-ajuda:hover .texto-ajuda {
+  visibility: visible;
+}
+
+
+/* ══════════════════════════════════════ */
+/* [14.3] COMPONENTE - CAMPO FLEX         */
+/* ══════════════════════════════════════ */
+
+.campo-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [14.4] COMPONENTE - INFO COM ÍCONE     */
+/* ══════════════════════════════════════ */
+
+.info-icone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+.info-icone i {
+  color: #0f0;
+}
+
+
+/* ══════════════════════════════════════ */
+/* [14.5] COMPONENTE - GRUPO ETIQUETAS    */
+/* ══════════════════════════════════════ */
+
+.grupo-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+.grupo-etiquetas span {
+  background-color: #001100;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #0f0;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [14.6] COMPONENTE - CAIXA FLUTUANTE    */
+/* ══════════════════════════════════════ */
+
+.caixa-flutuante {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  background-color: #111;
+  color: #0f0;
+  padding: 9px;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  font-family: monospace;
+  box-shadow: 0 0 6px #0f0;
+  z-index: 999;
+}
+
+/* ══════════════════════════════════════ */
+/* [14.7] COMPONENTE - CONTEÚDO OCULTO    */
+/* ══════════════════════════════════════ */
+
+.oculto {
+  display: none;
+}
+
+/* ══════════════════════════════════════ */
+/* [14.8] COMPONENTE - LINHA VERTICAL     */
+/* ══════════════════════════════════════ */
+
+.linha-vertical {
+  width: 1px;
+  height: 100%;
+  background-color: #0f0;
+  margin: 0 9px;
+}
+
+/* ══════════════════════════════════════ */
+/* [14.9] COMPONENTE - CAMPO DE ALERTA    */
+/* ══════════════════════════════════════ */
+
+.campo-alerta {
+  background-color: #220000;
+  color: #ff0000;
+  padding: 6px 10px;
+  font-family: monospace;
+  border: 1px solid red;
+  border-radius: 4px;
+  margin: 4px 0;
+  box-shadow: 0 0 4px red;
+}
+
+/* ═════════════════════════════════════════ */
+/* [14.9.1] COMPONENTE - TABELA DE COTAÇÕES  */
+/* ═════════════════════════════════════════ */
+.cotacoes-tabela {
+  width: 100%;
+  /*border-collapse: collapse;*/
+  table-layout: fixed;
+  text-align: center;
+}
+
+.cotacoes-tabela td {
+  vertical-align: middle;
+  border: 1px solid #00ff00;
+  border-radius: 20px;
+  padding: 1px;
+  background-color: #000;
+  font-family: "VT323", monospace;
+  color: #00ff00;
+  box-shadow: 0 0 6px #00ff00;
+  height: 60px;
+}
+
+.moeda-nome {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: -15px;
+  color: #00ff00;
+}
+
+.moeda-valor {
+  display: block;
+  font-size: 0.95em;
+  color: #00ff00;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.0] COMPONENTE - SUSPENSO FIXO      */
+/* ══════════════════════════════════════ */
+
+.suspenso-fixo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #000;
+  color: #0f0;
+  padding: 10px 16px;
+  border: 1px solid #0f0;
+  border-radius: 8px;
+  font-family: monospace;
+  box-shadow: 0 0 6px #0f0;
+  z-index: 9999;
+}
+
+/* Exemplo:
+<div class="suspenso-fixo">Mensagem flutuante</div> */
+
+/* ══════════════════════════════════════ */
+/* [15.1] COMPONENTE - ÍCONE DESTACADO   */
+/* ══════════════════════════════════════ */
+
+.icone-destaque {
+  font-size: 2rem;
+  color: #0f0;
+  text-shadow: 0 0 6px #0f0;
+  margin-right: 8px;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.2] COMPONENTE - TÍTULO DE BLOCO    */
+/* ══════════════════════════════════════ */
+
+.titulo-bloco {
+  font-size: 1.3rem;
+  font-family: monospace;
+  font-weight: bold;
+  color: #0f0;
+  text-shadow: 0 0 3px #0f0;
+  margin-bottom: 6px;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.3] COMPONENTE - RODAPÉ FLUTUANTE   */
+/* ══════════════════════════════════════ */
+
+.rodape-fixo {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  color: #0f0;
+  text-align: center;
+  font-family: monospace;
+  padding: 6px;
+  border-top: 1px solid #0f0;
+  box-shadow: 0 -1px 6px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.4] COMPONENTE - FUNDO ESPECIAL     */
+/* ══════════════════════════════════════ */
+
+.fundo-especial {
+  background: radial-gradient(circle at center, #003300, #000);
+  color: #0f0;
+  font-family: monospace;
+  padding: 20px;
+  border: 1px solid #0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 9px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.5] COMPONENTE - LINHA PONTILHADA   */
+/* ══════════════════════════════════════ */
+
+.linha-pontilhada {
+  border-top: 1px dotted #0f0;
+  margin: 10px 0;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.6] COMPONENTE - ALERTA SUAVE       */
+/* ══════════════════════════════════════ */
+
+.alerta-suave {
+  background-color: #112211;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 8px 9px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9em;
+  box-shadow: 0 0 6px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.7] COMPONENTE - GRUPO DE ETAPAS    */
+/* ══════════════════════════════════════ */
+
+.grupo-etapas {
+  display: flex;
+  gap: 10px;
+  font-family: monospace;
+  margin: 10px 0;
+}
+
+.grupo-etapas span {
+  background-color: #001100;
+  padding: 6px 9px;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.8] COMPONENTE - CAIXA DE ÍCONES    */
+/* ══════════════════════════════════════ */
+
+.caixa-icones {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: monospace;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  background-color: #000;
+}
+
+.caixa-icones i {
+  font-size: 1.5rem;
+  color: #0f0;
+  transition: transform 0.2s;
+}
+
+.caixa-icones i:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 6px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [15.9] COMPONENTE - SESSÃO ESCONDIDA   */
+/* ══════════════════════════════════════ */
+
+.sessao-escondida {
+  display: none;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.0] COMPONENTE - LAYOUT AJUSTÁVEL   */
+/* ══════════════════════════════════════ */
+
+.layout-ajustavel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  font-family: monospace;
+  color: #0f0;
+  padding: 10px;
+}
+
+/* Exemplo:
+<div class="layout-ajustavel">
+  <div>Item A</div>
+  <div>Item B</div>
+</div> */
+
+
+/* ══════════════════════════════════════ */
+/* [16.1] COMPONENTE - CARD COM SOMBRA   */
+/* ══════════════════════════════════════ */
+
+.card-sombra {
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 0 10px #0f0;
+  font-family: monospace;
+  color: #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.2] COMPONENTE - TÍTULO DE SESSÃO  */
+/* ══════════════════════════════════════ */
+
+.titulo-sessao {
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: monospace;
+  margin-bottom: 9px;
+  color: #0f0;
+  text-shadow: 0 0 6px #0f0;
+  border-bottom: 1px solid #0f0;
+  padding-bottom: 6px;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.3] COMPONENTE - CAMPO RESUMIDO    */
+/* ══════════════════════════════════════ */
+
+.campo-resumido {
+  font-family: monospace;
+  color: #0f0;
+  font-size: 0.95em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.4] COMPONENTE - CAIXA COM CANTO   */
+/* ══════════════════════════════════════ */
+
+.caixa-canto {
+  border: 1px dashed #0f0;
+  border-radius: 4px;
+  padding: 8px 9px;
+  font-family: monospace;
+  color: #0f0;
+  margin: 8px 0;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.5] COMPONENTE - BARRA DE ETAPAS   */
+/* ══════════════════════════════════════ */
+
+.barra-etapas {
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  color: #0f0;
+  margin-bottom: 9px;
+}
+
+.barra-etapas span {
+  background-color: #001100;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #0f0;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.6] COMPONENTE - CAIXA AJUSTÁVEL   */
+/* ══════════════════════════════════════ */
+
+.caixa-ajustavel {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #000;
+  border: 1px solid #0f0;
+  padding: 16px;
+  font-family: monospace;
+  color: #0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 6px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.7] COMPONENTE - ETIQUETA FIXA     */
+/* ══════════════════════════════════════ */
+
+.etiqueta-fixa {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #111;
+  color: #0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #0f0;
+  font-family: monospace;
+  font-size: 0.85em;
+  z-index: 999;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.8] COMPONENTE - ÁREA OCULTÁVEL    */
+/* ══════════════════════════════════════ */
+
+.area-ocultavel {
+  display: none;
+}
+
+/* ══════════════════════════════════════ */
+/* [16.9] COMPONENTE - CAIXA INFO FIXA   */
+/* ══════════════════════════════════════ */
+
+.caixa-info-fixa {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 10px 16px;
+  font-family: monospace;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #0f0;
+  z-index: 999;
+}
+
+/* ══════════════════════════════════════ */
+/* [17.0] COMPONENTE - BASE FINAL        */
+/* ══════════════════════════════════════ */
+
+.base-final {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #000;
+  border-top: 1px dashed #0f0;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 1em;
+  text-align: center;
+  box-shadow: 0 -1px 8px #0f0;
+}
+
+/* Fim do Bloco 17.0 */
+
+/* ══════════════════════════════════════ */
+/* [17.1] COMPONENTE - TÍTULO COM BARRA */
+/* ══════════════════════════════════════ */
+
+.titulo-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 1.2em;
+  padding: 8px 9px;
+  background-color: #000;
+  border-bottom: 1px solid #0f0;
+  color: #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [17.2] COMPONENTE - BORDAS INTERNAS   */
+/* ══════════════════════════════════════ */
+
+.borda-interna {
+  border: 1px dashed #0f0;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: monospace;
+  color: #0f0;
+  box-shadow: inset 0 0 6px #0f0;
+  border-radius: 6px;
+}
+
+/* ══════════════════════════════════════ */
+/* [17.3] COMPONENTE - CAIXA SUSPENSA    */
+/* ══════════════════════════════════════ */
+
+.caixa-suspensa {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  background-color: #111;
+  padding: 9px;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  color: #0f0;
+  font-family: monospace;
+  box-shadow: 0 0 10px #0f0;
+  z-index: 1000;
+}
+
+/* ══════════════════════════════════════ */
+/* [17.4] COMPONENTE - CAIXA COM MARCA   */
+/* ══════════════════════════════════════ */
+
+.caixa-com-marca {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #0f0;
+  background-color: #000;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #0f0;
+  overflow: hidden;
+}
+
+.caixa-com-marca::before {
+  content: "MATRIX";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 0.7em;
+  color: #0f0;
+  opacity: 0.3;
+  transform: rotate(-20deg);
+}
+
+/* ══════════════════════════════════════ */
+/* [17.5] COMPONENTE - MODO ESCURO SUAVE */
+/* ══════════════════════════════════════ */
+
+.modo-escuro-suave {
+  background-color: #101010;
+  color: #0f0;
+  font-family: monospace;
+  padding: 20px;
+  border: 1px dashed #0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 4px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [17.6] COMPONENTE - AVISO DE RODAPÉ   */
+/* ══════════════════════════════════════ */
+
+.aviso-rodape {
+  font-family: monospace;
+  font-size: 0.8em;
+  color: #0f0;
+  text-align: center;
+  margin-top: 9px;
+  padding: 6px;
+  border-top: 1px dotted #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [17.7] COMPONENTE - PAINEL DUPLO      */
+/* ══════════════════════════════════════ */
+
+.painel-duplo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+@media (max-width: 800px) {
+  .painel-duplo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════ */
+/* [17.8] COMPONENTE - BLOCO NEON        */
+/* ══════════════════════════════════════ */
+
+.bloco-neon {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #000;
+  border: 1px solid #0f0;
+  box-shadow: 0 0 9px #0f0;
+  font-family: monospace;
+  color: #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [17.9] COMPONENTE - TEXTO CÓDIGO      */
+/* ══════════════════════════════════════ */
+
+.texto-codigo {
+  font-family: monospace;
+  background-color: #111;
+  color: #0f0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px dashed #0f0;
+  overflow-x: auto;
+}
+
+/* ══════════════════════════════════════ */
+/* [18.0] COMPONENTE - RODAPÉ FINAL      */
+/* ══════════════════════════════════════ */
+
+.rodape-final {
+  font-family: monospace;
+  font-size: 0.85em;
+  color: #0f0;
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px;
+  border-top: 1px dashed #0f0;
+  background-color: #000;
+  box-shadow: 0 -1px 6px #0f0;
+}
+
+/* Fim do Bloco 18.0 */
+
+/* ══════════════════════════════════════ */
+/* [18.1] COMPONENTE - SEÇÃO FIXA       */
+/* ══════════════════════════════════════ */
+
+.secao-fixa {
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  padding: 10px 16px;
+  border-bottom: 1px solid #0f0;
+  z-index: 1000;
+  color: #0f0;
+  font-family: monospace;
+}
+
+/* ══════════════════════════════════════ */
+/* [18.2] COMPONENTE - ALINHAMENTO GRID  */
+/* ══════════════════════════════════════ */
+
+.grid-alinhado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 9px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [18.3] COMPONENTE - BARRA DE STATUS   */
+/* ══════════════════════════════════════ */
+
+.barra-status {
+  width: 100%;
+  height: 6px;
+  background-color: #222;
+  border: 1px solid #0f0;
+  position: relative;
+}
+
+.barra-status span {
+  display: block;
+  height: 100%;
+  background-color: #0f0;
+  width: 50%; /* ajuste conforme necessário */
+}
+
+/* ══════════════════════════════════════ */
+/* [18.4] COMPONENTE - ÍCONE FIXO CANTO  */
+/* ══════════════════════════════════════ */
+
+.icone-canto {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  color: #0f0;
+  z-index: 999;
+}
+
+/* ══════════════════════════════════════ */
+/* [18.5] COMPONENTE - CAIXA TRANSPARENTE */
+/* ══════════════════════════════════════ */
+
+.caixa-transparente {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #0f0;
+  padding: 16px;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [18.6] COMPONENTE - MODO SILENCIOSO   */
+/* ══════════════════════════════════════ */
+
+.silencioso {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════ */
+/* [18.7] COMPONENTE - BLOCO DE ERRO     */
+/* ══════════════════════════════════════ */
+
+.bloco-erro {
+  background-color: #220000;
+  border: 1px solid #ff0000;
+  color: #ff4444;
+  padding: 9px;
+  border-radius: 6px;
+  font-family: monospace;
+  box-shadow: 0 0 6px #ff0000;
+}
+
+/* ══════════════════════════════════════ */
+/* [18.8] COMPONENTE - CHAVE ON/OFF      */
+/* ══════════════════════════════════════ */
+
+.chave-toggle {
+  appearance: none;
+  width: 40px;
+  height: 20px;
+  background-color: #222;
+  border: 1px solid #0f0;
+  border-radius: 20px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+}
+
+.chave-toggle:checked::before {
+  transform: translateX(20px);
+}
+
+.chave-toggle::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #0f0;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  transition: 0.3s ease;
+}
+
+/* ══════════════════════════════════════ */
+/* [18.9] COMPONENTE - CONTAINER FLUIDO  */
+/* ══════════════════════════════════════ */
+
+.container-fluido {
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ══════════════════════════════════════ */
+/* [19.0] COMPONENTE - NOTA EM DESTAQUE  */
+/* ══════════════════════════════════════ */
+
+.nota-destaque {
+  background-color: #111;
+  border-left: 4px solid #0f0;
+  padding: 10px 16px;
+  font-family: monospace;
+  color: #0f0;
+  margin: 10px 0;
+  box-shadow: inset 0 0 4px #0f0;
+}
+
+/* ══════════════════════════════════════ */
+/* [20.0] COMPONENTE - FIM DO CSS        */
+/* ══════════════════════════════════════ */
+
+/* Todos os blocos foram definidos e comentados. */
+/* Última atualização da seção concluída. */
+
+/* Fim do Bloco 18.1 */
+

@@ -19,7 +19,8 @@ try {
         echo "<li><em>Sem links visíveis.</em></li>";
     }
 } catch (PDOException $e) {
-    echo "<li><em>Erro ao carregar favoritos: {$e->getMessage()}</em></li>";
+    //    echo "<li><em>Erro ao carregar favoritos: {$e->getMessage()}</em></li>";
+    //    echo "<div class='favorito-item'>&#10040; <a href='{$url}' target='_blank'>{$nome}</a></div>";
+    //    echo "<div class='favorito-item'><a href='{$url}' target='_blank'>{$nome}</a></div>";
+    echo "<div class='favorito-item'><span class='estrela'></span><a href='{$url}' target='_blank'>{$nome}</a></div>";
 }
-?>
-

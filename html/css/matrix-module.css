@@ -1,0 +1,110 @@
+
+/* ══════════════════════════════════════════════════════════════ */
+/* MATRIX MODULE CSS - Estilo Visual para Lembretes, Favoritos... */
+/* Estrutura com abas: Edição, Inclusão, Histórico                */
+/* Criado por FoxTrot ✪                                           */
+/* ══════════════════════════════════════════════════════════════ */
+
+/* Contêiner Principal */
+.mod-container {
+  font-family: 'Courier New', monospace;
+  background-color: #000;
+  color: #00ff66;
+  padding: 20px;
+  border: 2px solid #00ff66;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #00ff66;
+}
+
+/* Abas */
+.mod-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.mod-tablink {
+  background-color: #000;
+  border: 2px solid #00ff66;
+  color: #00ff66;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mod-tablink:hover, .mod-tablink.active {
+  background-color: #00ff66;
+  color: #000;
+}
+
+/* Conteúdo da Aba */
+.mod-tabcontent {
+  display: none;
+  border-top: 1px solid #00ff66;
+  padding-top: 20px;
+}
+
+/* Lista da Edição */
+.mod-lista {
+  border: 1px dashed #00ff66;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Formulário da Inclusão */
+.mod-formulario label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.mod-formulario input[type="text"],
+.mod-formulario textarea {
+  width: 100%;
+  background-color: #111;
+  color: #00ff66;
+  border: 1px solid #00ff66;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.mod-caracteres {
+  float: right;
+  font-size: 0.9em;
+  color: #00ff66;
+  margin-top: -20px;
+  margin-right: 4px;
+}
+
+.mod-btn-salvar, .mod-btn-cancelar {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: 2px solid #00ff66;
+  background-color: #000;
+  color: #00ff66;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mod-btn-salvar:hover {
+  background-color: #00ff66;
+  color: #000;
+}
+
+.mod-btn-cancelar:hover {
+  background-color: #ff0033;
+  color: #fff;
+}
+
+/* Histórico */
+.mod-historico {
+  background-color: #111;
+  border: 1px solid #00ff66;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95em;
+}
